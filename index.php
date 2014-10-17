@@ -22,13 +22,14 @@
                         <label for="playstop"><span></span></label>
                     </div>
                 </div>
-            </div>
+
             <div id='links'>
                 <a href='http://www.facebook.com/safetytalkinfinity' target='blank'><img src='img/blah.png' /></a>
                 <a href='http://soundcloud.com/safety-talk' target='blank'><img src='img/soundcloud.png' /></a>
                 <a href='http://safetytalk.bandcamp.com' target='blank'><img src='img/bandcamp.png' /></a>
             </div>
         </div>
+                    </div>
         
         <?php
             include ('_footer_scripts.php');

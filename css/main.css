@@ -179,7 +179,7 @@ a {
 }
 #coverphoto img#animation {
     position: relative;
-    border:1em solid rgba(255,154,0,0.7);
+    border:1em solid rgba(36,44,54,0.85);
     margin: auto;  
 }
 input#playstop{
@@ -207,7 +207,7 @@ input#playstop:checked + label {
     max-width: 60em;
     background-color:rgba(36,44,54,0.85);
     padding: .5em;
-    margin: auto;
+   // margin: auto;
      
 }
 .content p {
