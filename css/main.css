@@ -145,7 +145,7 @@ a {
     color: #3E6C99;
 }
 #row1 {
-    max-width: 60em;
+    //max-width: 60em;
     margin: auto;
     text-align: center;
 
@@ -208,7 +208,7 @@ input#playstop:checked + label {
     max-width: 60em;
     background-color:rgba(36,44,54,0.85);
     padding: .5em;
-   // margin: auto;
+    margin: auto;
      
 }
 .content p {
