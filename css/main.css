@@ -169,7 +169,7 @@ a {
 }
 .rightcol {
     display: inline-block;
-    //margin: 3em;
+    padding: 1em;
     vertical-align: top;
 }
 #links img {
@@ -235,11 +235,12 @@ input#playstop:checked + label {
     #coverphoto img#animation {
         max-width:94%;
     }
-    #links img {
+    #links a {
         display: inline-block;
+        float:left;
     }
-    #row1 {
-        background-color:rgba(36,44,54,0.85);
+    .col-divider {
+        display: none;
     }
 
     #coverphoto img#animation {
@@ -260,6 +261,9 @@ input#playstop:checked + label {
     #h-menu li#logo-item {
         margin-top:auto;
         margin-right: 5%;
+    }
+        #row1 {
+        background-color:rgba(36,44,54,0.85);
     }
 
 }
