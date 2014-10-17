@@ -235,10 +235,19 @@ input#playstop:checked + label {
     #coverphoto img#animation {
         max-width:94%;
     }
-    #links a {
+    #links img {
         display: inline-block;
     }
+    #row1 {
+        background-color:rgba(36,44,54,0.85);
+    }
 
+    #coverphoto img#animation {
+        max-width:94%;
+        border: 0;
+        margin:3%;
+    }
+@media only screen and (max-width: 34em) {
     #h-menu {
         margin-bottom: 0;
     }
@@ -252,15 +261,7 @@ input#playstop:checked + label {
         margin-top:auto;
         margin-right: 5%;
     }
-    #row1 {
-        background-color:rgba(36,44,54,0.85);
-    }
 
-    #coverphoto img#animation {
-        max-width:94%;
-        border: 0;
-        margin:3%;
-    }
 }
 
 
