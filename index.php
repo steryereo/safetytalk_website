@@ -14,7 +14,7 @@
             include ('_nav.php')
         ?>
         <div id='row1'>
-            <div class="content">
+            <div class="content" id='homecontent'>
                 <div id='coverphoto'>
                     <img id='animation' src='img/st_sequence_slower.gif'>
                     <div id='gifctrl'>
