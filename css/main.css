@@ -205,7 +205,7 @@ input#playstop:checked + label {
     background-image: url(../img/stop.png);
 }
 .content{
-    max-width: 60em;
+    max-width: 600px;
     background-color:rgba(36,44,54,0.85);
     padding: .5em;
     margin: auto;
