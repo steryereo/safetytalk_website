@@ -26,8 +26,8 @@
             <div class='col-divider'></div>
             <div class='rightcol' id='links'>
                 <a href='http://www.facebook.com/safetytalkinfinity' target='blank'><img src='img/blah.png' /></a>
-                <br>
                 <a href='http://soundcloud.com/safety-talk' target='blank'><img src='img/soundcloud.png' /></a>
+                <a href='http://safetytalk.bandcamp.com' target='blank'><img src='img/bandcamp.png' /></a>
             </div>
         </div>
         

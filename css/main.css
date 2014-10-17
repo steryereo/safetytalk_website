@@ -173,7 +173,7 @@ a {
     vertical-align: top;
 }
 #links img {
-    opacity: 0.8;
+    opacity: 0.8;  
 }
 #links img:hover {
     opacity: 1;
@@ -181,6 +181,11 @@ a {
     -moz-transition: opacity 500ms;
     -o-transition: opacity 500ms;
     transition: opacity 500ms;
+}
+#links a {
+
+    display: block;
+    margin:1em;
 }
 #coverphoto img#animation {
     position: relative;
@@ -228,10 +233,7 @@ input#playstop:checked + label {
     #h-menu li#logo-item {
         margin-top: -.5em;
     }
-          #coverphoto {
-        margin: 0;
-        padding: 0;
-    }
+
     #coverphoto img#animation {
         max-width:94%;
     }
@@ -264,6 +266,10 @@ input#playstop:checked + label {
     }
         #row1 {
         background-color:rgba(36,44,54,0.85);
+    }
+    #coverphoto {
+        margin: 0;
+        padding: 0;
     }
 
 }
