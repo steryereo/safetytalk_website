@@ -205,14 +205,9 @@ input#playstop + label {
     height:3em;
     opacity:0.7; 
 }
-
 input#playstop:checked + label {
     background-image: url(../img/stop.png);
 }
-input#playstop:checked ~ img {
-  //  background-image: url(../img/stop.png);
-}
-
 #content{
     max-width: 60em;
     background-color:rgba(36,44,54,0.85);
@@ -240,9 +235,10 @@ input#playstop:checked ~ img {
     #coverphoto img#animation {
         max-width:94%;
     }
-}
+    #links a {
+        display: inline-block;
+    }
 
-@media only screen and (max-width: 34em) {
     #h-menu {
         margin-bottom: 0;
     }
