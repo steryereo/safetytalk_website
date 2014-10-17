@@ -226,10 +226,13 @@ input#playstop:checked + label {
     }
     #coverphoto img#animation {
         max-width:94%;
-        //border: 0;
+        border: 0;
         margin:3%;
     }
-@media only screen and (max-width: 34em) {
+    #coverphoto {
+    background-color:rgba(36,44,54,0.85);
+    }
+@media only screen and (max-width: 35em) {
     #h-menu {
         margin-bottom: 0;
     }
