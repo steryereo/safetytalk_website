@@ -14,7 +14,7 @@
             include ('_nav.php')
         ?>
         <div id='row1'>
-            <div class="middlecol">
+            <div class="content">
                 <div id='coverphoto'>
                     <img id='animation' src='img/st_sequence_slower.gif'>
                     <div id='gifctrl'>
@@ -23,8 +23,7 @@
                     </div>
                 </div>
             </div>
-            <div class='col-divider'></div>
-            <div class='rightcol' id='links'>
+            <div id='links'>
                 <a href='http://www.facebook.com/safetytalkinfinity' target='blank'><img src='img/blah.png' /></a>
                 <a href='http://soundcloud.com/safety-talk' target='blank'><img src='img/soundcloud.png' /></a>
                 <a href='http://safetytalk.bandcamp.com' target='blank'><img src='img/bandcamp.png' /></a>
