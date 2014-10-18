@@ -9,6 +9,7 @@ shuffle($images);
     include ('_head.php')
 ?>
    <script src="js/vendor/masonry.pkgd.min.js"></script>
+   <script src="js/vendor/imagesLoaded.pkgd.min.js"></script>
 
     <body>
         <!--[if lt IE 7]>
@@ -45,6 +46,9 @@ var msnry = new Masonry( container, {
   // options
   itemSelector: '.photo',
   isFitWidth:true
+});
+imagesLoaded( container, function() {
+  msnry.layout();
 });
    </script>
     </body>
