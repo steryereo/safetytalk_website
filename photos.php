@@ -1,6 +1,6 @@
 <?php
 include_once('get_photos.php');
-$images = getImages(__DIR__).'/img/photos/';
+$images = getImages(basename(__DIR__).'/img/photos/');
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +24,7 @@ $images = getImages(__DIR__).'/img/photos/';
         	<div id='gallery' class="js-masonry"
   					data-masonry-options='{ "columnWidth": 200, "itemSelector": ".photo" }'>
         		<?php
+                echo print_r($images);
         			foreach($images as $img) {
         				echo "<img class=\"photo\" src=\"{$img['file']}\" {$img['size'][3]} alt=\"\">\n";
         			}

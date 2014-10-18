@@ -1,5 +1,6 @@
 <?PHP
-	$imagetypes = array("image/jpeg", "image/gif", "image/png");
+	//FIX THIS IT"S BAD@!@!!@!!
+	$imagetypes = array("jpeg", "gif", "png", "jpg");
 
 
 // Original PHP code by Chirp Internet: www.chirp.com.au
@@ -16,15 +17,13 @@ function getImages($dir) {
 
 	// full server path to directory
 	$fulldir = "{$_SERVER['DOCUMENT_ROOT']}/$dir";
-
-	$d = dir($fulldir) or die("getImages: Failed opening directory $dir for reading");
+	$d = dir($fulldir) or die("getImages: Failed opening directory $dir for reading".print_r(error_get_last()));
 	while(false !== ($entry = $d->read())) {
 	// skip hidden files
 		if($entry[0] == ".") continue;
-		
 		// check for image files
 		$f = escapeshellarg("$fulldir$entry");
-		$mimetype = trim(`file -bi $f`);
+		$mimetype = pathinfo($f)['extension'];
 		foreach($imagetypes as $valid_type) {
 			if(preg_match("@^{$valid_type}@", $mimetype)) {
 				$retval[] = array(
