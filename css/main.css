@@ -98,8 +98,8 @@ textarea {
    ========================================================================== */
 body {
     font-family: 'Ubuntu', sans-serif;
-    background-image: url(../img/bg_flowers.jpg);
-    //background-size: 100%;
+    background-image: url(../img/bg.jpg);
+//    background-size: 100%;
 }
 
 ul {
@@ -205,7 +205,7 @@ input#playstop:checked + label {
     background-image: url(../img/stop.png);
 }
 .content{
-    max-width: 600px;
+    max-width: 1024px;
     background-color:rgba(36,44,54,0.85);
     padding: .5em;
     margin: auto;
@@ -221,6 +221,38 @@ input#playstop:checked + label {
     max-width:600px;
     padding: 1em;
 }
+#gallery {
+    max-width: 100%;
+}
+
+.photo {
+    width:200px;
+    padding:4px 8px;
+
+}
+.photo:hover {
+    z-index: 1000;
+    width:230px;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms;
+    margin-left:-15px;
+    margin-top:-15px;
+
+}
+.photo img {
+    width: 100%;
+/*      -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; */
+  height:0%;
+  border:3px solid rgba(200,200,200,0.85);
+      -webkit-border-radius: 50% / 10%;
+   -moz-border-radius: 50%/ 10%;
+  border-radius: 50% / 10%;
+
+}
 
 @media only screen and (max-width: 59em) {
     #h-menu ul{
@@ -235,8 +267,10 @@ input#playstop:checked + label {
         margin:3%;
     }
     #coverphoto {
-    background-color:rgba(36,44,54,0.85);
+    background
+    -color:rgba(36,44,54,0.85);
     }
+     
 @media only screen and (max-width: 35em) {
     #h-menu {
         margin-bottom: 0;

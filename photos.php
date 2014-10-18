@@ -1,6 +1,7 @@
 <?php
 include_once('get_photos.php');
-$images = getImages(basename(__DIR__).'/img/photos/');
+$images = getImages(basename(__DIR__).'/img/photos/small/');
+shuffle($images);
 ?>
 
 <!DOCTYPE html>
@@ -8,6 +9,7 @@ $images = getImages(basename(__DIR__).'/img/photos/');
     include ('_head.php')
 ?>
    <script src="js/vendor/masonry.pkgd.min.js"></script>
+
     <body>
         <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -20,17 +22,15 @@ $images = getImages(basename(__DIR__).'/img/photos/');
         ?>
 
         <div id='row1'>
-        <section class='content'>
-        	<div id='gallery' class="js-masonry"
-  					data-masonry-options='{ "columnWidth": 200, "itemSelector": ".photo" }'>
+        <!-- <section class='content'> -->
+        	<div id='gallery' class="content" >
         		<?php
-                echo print_r($images);
         			foreach($images as $img) {
-        				echo "<img class=\"photo\" src=\"{$img['file']}\" {$img['size'][3]} alt=\"\">\n";
+        				echo "<div class=\"photo\"><img src=\"{$img['file']}\" {$img['size'][3]} alt=\"\"></div>\n";
         			}
         		?>
         	</div>  
-        </section>
+        <!-- </section> -->
         </div>
 
 
@@ -39,5 +39,13 @@ $images = getImages(basename(__DIR__).'/img/photos/');
 		<?php
             include ('_footer_scripts.php');
     	?>
+          <script>
+var container = document.querySelector('#gallery');
+var msnry = new Masonry( container, {
+  // options
+  itemSelector: '.photo',
+  isFitWidth:true
+});
+   </script>
     </body>
 </html>
