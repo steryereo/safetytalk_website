@@ -116,10 +116,20 @@ a {
     margin-top: 3em;
     margin-bottom:5em;
     text-align: center;
-    -webkit-border-top-right-radius: 50px;
+    position: relative;
+
+}
+#nav-bg {
+       -webkit-border-top-right-radius: 50px;
     -moz-border-radius-topright: 50px;
     border-top-right-radius: 50px;
     background-color: rgba(36,44,54,0.85);
+    height:3em;
+    margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  //width:100%;
+  z-index: -1;
 
 }
 #h-menu ul {
@@ -134,7 +144,6 @@ a {
     font-size: 2em;
 }
 #h-menu li#logo-item {
-    float:left;
     margin-top:-1em;
 }
 #logo-item img {
@@ -233,36 +242,71 @@ input#playstop:checked + label {
     padding:4px 8px;
 
 }
-.photo:hover {
+.photo img:hover {
     z-index: 1000;
-    width:230px;
+    width:106%;
     -webkit-transition: all 500ms;
     -moz-transition: all 500ms;
     -o-transition: all 500ms;
     transition: all 500ms;
-    margin-left:-15px;
-    margin-top:-15px;
+    margin-left:-3%;
+    margin-top:-3%;
+
+    border:5px solid rgba(250,250,250,1);
+
 
 }
 .photo img {
+    z-index: 100;
     width: 100%;
-/*      -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box; */
   height:0%;
-  border:3px solid rgba(200,200,200,0.85);
-      -webkit-border-radius: 50% / 10%;
-   -moz-border-radius: 50%/ 10%;
-  border-radius: 50% / 10%;
+  border:5px solid rgba(200,200,200,0.85);
+      -webkit-border-radius: 40% / 10%;
+   -moz-border-radius: 40%/ 10%;
+  border-radius: 40% / 10%;
+      -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms;
+
 
 }
+#lightbox {
+    position:fixed; /* keeps the lightbox window in the current viewport */
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:url(../img/overlay.png) repeat;
+    text-align:center;
 
-@media only screen and (max-width: 59em) {
+}
+#lightbox img {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+
+    border:10px solid rgba(200,200,200,0.85);
+    -webkit-border-radius: 40% / 10%;
+    -moz-border-radius: 40%/ 10%;
+    border-radius: 40% / 10%;
+}
+
+@media only screen and (max-width: 60em) {
     #h-menu ul{
-        width: 41em;
+        max-width: 41em;
+
+        text-align: left;
+    }
+    #h-menu li {
+        display: inline-block;
     }
     #h-menu li#logo-item {
         margin-top: -.5em;
+        float: left;
+    }
+    #nav-bg {
+        height: 6em;
     }
     #coverphoto img#animation {
         max-width:94%;
@@ -273,22 +317,30 @@ input#playstop:checked + label {
     background-color:rgba(36,44,54,0.85);
     }
      
-@media only screen and (max-width: 35em) {
+@media only screen and (max-width: 40em) {
     #h-menu {
         margin-bottom: 0;
     }
     #h-menu ul{
-        width: 24em;
+        width: 100%;
     }
     #h-menu li {
         font-size: 1.5em;
+        display: block;
+        margin: 0;
     }
     #h-menu li#logo-item {
         margin-top:auto;
         margin-right: 5%;
     }
+        #nav-bg {
+        height: 100%;
+    }
     #row1 {
-       // background-color:rgba(36,44,54,0.85);
+        background-color:rgba(36,44,54,0.85);
+    }
+    .content {
+        background: transparent;
     }
     #coverphoto {
         margin: 0;
