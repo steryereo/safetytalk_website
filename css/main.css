@@ -283,7 +283,7 @@ input#playstop:checked + label {
 }
 .is-loading {
 //  background-color: black;
-  background-image: url('../img/loading.gif');
+  background-image: url(../img/loading.gif);
 
 }
 #lightbox img {
