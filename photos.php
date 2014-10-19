@@ -55,7 +55,7 @@ var msnry = new Masonry( container, {
 imagesLoaded( container, function() {
   msnry.layout();
 });
-$('#lightbox').imagesLoaded().progress( function() {
+$('#lightbox-content').imagesLoaded().progress( function() {
     $('#lightbox-content').removeClass('is-loading');
            $('#lightbox-content img').fadeIn();
  
