@@ -79,12 +79,12 @@ $('.photo img').click(function(e) {
         if ($('#lightbox').length > 0) { // #lightbox exists
             
             //place href as img src value
-            $('#lightbox-content').html('<img src="' + image_href + '" style = "max-height:'+ $(window).height()*.9 +'px;"/>');
+            $('#lightbox-content').html('<img src="' + image_href + '" style = "max-height:'+ $(window).height()*.9 +'px;max-width:'+ $(window).width()*.9 +'px;"/>');
     
         $('#lightbox-content').addClass('is-loading');
         $('#lightbox-content img').hide ();
 
-        
+
 
         imagesLoaded( container2, function() {
     $('#lightbox-content').removeClass('is-loading');
