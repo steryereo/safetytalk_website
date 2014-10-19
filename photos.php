@@ -8,8 +8,6 @@ shuffle($images);
 <?php
     include ('_head.php')
 ?>
-   <script src="js/vendor/masonry.pkgd.min.js"></script>
-   <script src="js/vendor/imagesLoaded.pkgd.min.js"></script>
 
     <body>
         <!--[if lt IE 7]>
@@ -44,6 +42,9 @@ shuffle($images);
 		<?php
             include ('_footer_scripts.php');
     	?>
+        
+   <script src="js/vendor/masonry.pkgd.min.js"></script>
+   <script src="js/vendor/imagesLoaded.pkgd.min.js"></script>
           <script>
 var container = document.querySelector('#gallery');
 var msnry = new Masonry( container, {
