@@ -55,7 +55,8 @@ var msnry = new Masonry( container, {
 imagesLoaded( container, function() {
   msnry.layout();
 });
-$('#lightbox-content').imagesLoaded().progress( function() {
+var container2 = document.querySelector('#lightbox-content');
+$('#lightbox-content').imagesLoaded(function() {
     $('#lightbox-content').removeClass('is-loading');
            $('#lightbox-content img').fadeIn();
  
@@ -86,7 +87,7 @@ $('.photo img').click(function(e) {
             $('#lightbox-content').html('<img src="' + image_href + '" style = "max-height:'+ $(window).height()*.9 +'px;"/>');
     
         $('#lightbox-content').addClass('is-loading');
-        $('#lightbox-content img').fadeOut();
+        $('#lightbox-content img').hide();
         
             //show lightbox window - you could use .show('fast') for a transition
             $('#lightbox').fadeIn();
