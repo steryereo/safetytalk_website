@@ -281,6 +281,11 @@ input#playstop:checked + label {
     text-align:center;
 
 }
+.is-loading {
+//  background-color: black;
+  background-image: url('../img/loading.gif');
+
+}
 #lightbox img {
   margin: auto;
   position: absolute;
