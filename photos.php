@@ -56,7 +56,7 @@ imagesLoaded( container, function() {
   msnry.layout();
 });
 
-
+var container2 = document.querySelector('#lightbox-content');
     $('#lightbox').click(function() {
         $('#lightbox').fadeOut();
     });
@@ -85,7 +85,7 @@ $('.photo img').click(function(e) {
         $('#lightbox-content img').hide ();
 
         
-var container2 = document.querySelector('#lightbox-content');
+
         imagesLoaded( container2, function() {
     $('#lightbox-content').removeClass('is-loading');
            $('#lightbox-content img').fadeIn();
