@@ -87,7 +87,7 @@ $('.photo img').click(function(e) {
     
         $('#lightbox-content').addClass('is-loading');
         $('#lightbox-content img').hide();
-        S
+        
             //show lightbox window - you could use .show('fast') for a transition
             $('#lightbox').fadeIn();
         }
