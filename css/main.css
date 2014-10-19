@@ -281,9 +281,13 @@ input#playstop:checked + label {
     text-align:center;
 
 }
+#lightbox-content {
+height:100%;
+}
 .is-loading {
   background-image: url(../img/loading.gif);
   background-position: center;
+  background-repeat: no-repeat;
 
 }
 #lightbox img {

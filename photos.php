@@ -85,7 +85,7 @@ $('.photo img').click(function(e) {
             //place href as img src value
             $('#lightbox-content').html('<img src="' + image_href + '" style = "max-height:'+ $(window).height()*.9 +'px;"/>');
     
-        $('#lightbox').addClass('is-loading');
+        $('#lightbox-content').addClass('is-loading');
        // $('#lightbox-content img').hide();
         
             //show lightbox window - you could use .show('fast') for a transition
