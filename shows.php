@@ -21,7 +21,7 @@ include('_head.php')
             </p>
         <h2>Past Shows</h2> 
             <p class="show-listing">
-                9/25/2014: <a href="http://publicsf.com/exhibitions/hanna-quevedo-11353">Hanna Quevedo Photo Gallery Opening </a> at Public Works SF Roll Up Gallery &nbsp<a href="https://www.facebook.com/events/733163130087603/" target="blank"><img src="img/fb_white_29.png"></a>
+                9/25/2014: <a href="http://publicsf.com/exhibitions/hanna-quevedo-11353" target="blank">Hanna Quevedo Photo Gallery Opening </a> at Public Works SF Roll Up Gallery &nbsp<a href="https://www.facebook.com/events/733163130087603/" target="blank"><img src="img/fb_white_29.png"></a>
             </p>
         </section>
     </div>
