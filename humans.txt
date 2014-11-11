@@ -3,11 +3,11 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Nick Echols -- secret codes
 
 # THANKS
 
-    <name>
+    Satan, my master and constant companion
 
 # TECHNOLOGY COLOPHON
 

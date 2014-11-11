@@ -106,7 +106,6 @@ background-attachment: fixed;
 h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     color: rgba(200,200,200,0.85);
-    /*text-shadow: 0px -2px 2px #FFF;*/
     margin: 0;
     letter-spacing: .1em;
 }
@@ -118,11 +117,17 @@ ul {
 
 a {
     text-decoration: none;
+    color:#3E6C99;
 }
+.shadow {
+    text-shadow: 0px 2px 2px #CCC;
+}
+
+
 #h-menu {
     padding:  0.25em 1em;
-    margin-top: 3em;
-    margin-bottom:5em;
+    margin-top: 2em;
+    margin-bottom:3em;
     text-align: center;
     position: relative;
 
@@ -164,6 +169,10 @@ a {
 #h-menu li a {
     color: #31B0D1;
 
+}
+#h-menu li a.shadow {
+
+    color: #30D130;
 }
 #row1 {
     //max-width: 60em;
@@ -233,6 +242,7 @@ input#playstop:checked + label {
     background-color:rgba(36,44,54,0.85);
     padding: .5em;
     margin: auto;
+    margin-bottom: 50px;
      
 }
 .content p {

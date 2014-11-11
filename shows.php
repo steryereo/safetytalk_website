@@ -15,6 +15,10 @@ include('_head.php')
     <!-- BEGIN CONTENT -->
     <div id='row1'>
         <section class='content'>
+        <h2>Upcoming Shows</h2> 
+            <p class="show-listing">
+            Nothing to announce just yet. In the meantime, <a href="./booking">book us</a> for your next show.
+            </p>
         <h2>Past Shows</h2> 
             <p class="show-listing">
                 9/25/2014: <a href="http://publicsf.com/exhibitions/hanna-quevedo-11353">Hanna Quevedo Photo Gallery Opening </a> at Public Works SF Roll Up Gallery &nbsp<a href="https://www.facebook.com/events/733163130087603/" target="blank"><img src="img/fb_white_29.png"></a>

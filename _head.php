@@ -15,4 +15,6 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="js/nav.js"></script>
     </head>
