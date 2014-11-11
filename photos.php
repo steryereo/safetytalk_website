@@ -1,6 +1,6 @@
 <?php
 include_once('get_photos.php');
-$images = getImages(basename(__DIR__).'/img/photos/small/');
+$images = getImages('/img/photos/small/');
 shuffle($images);
 ?>
 
