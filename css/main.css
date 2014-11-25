@@ -182,10 +182,15 @@ a {
 }
 #coverphoto {
     position: relative;
-    width:100;
+    width:100%;
     max-width:500px;
     margin: auto;
 }
+#coverphoto img {
+    max-width:100%;
+   
+}
+
 #gifctrl{
     text-align: right;
 }
@@ -208,7 +213,7 @@ a {
     display: inline-block;
     margin:1em;
 }
-#coverphoto img#animation {
+#coverphoto img {
     position: relative;
     border:1em solid rgba(36,44,54,0.85);
     margin: auto;  
@@ -236,6 +241,9 @@ input#playstop + label:hover {
 }
 input#playstop:checked + label {
     background-image: url(../img/stop.png);
+}
+#next {
+    float:right;
 }
 .content{
     max-width: 1024px;

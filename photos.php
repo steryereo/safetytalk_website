@@ -3,7 +3,6 @@ include_once('get_photos.php');
 $images = getImages('/img/photos/small/');
 shuffle($images);
 ?>
-
 <!DOCTYPE html>
 <?php
     include ('_head.php')

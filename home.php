@@ -3,6 +3,7 @@
         include ('_head.php')
     ?>
     <script src="js/main.js"></script>
+
     <body>
         <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -16,12 +17,8 @@
         <div id='row1'>
             <div class="content" id='homecontent'>
                 <div id='coverphoto'>
-                    <img id='animation' src='img/st_sequence_slower.gif'>
-                    <div id='gifctrl'>
-                        <input type="checkbox" id='playstop' >
-                        <label for="playstop"><span></span></label>
-                    </div>
                 </div>
+                <div id='next'><h6>next --></h6></div>
 
             <div id='links'>
                 <a href='http://www.facebook.com/safetytalkinfinity' target='blank'><img src='img/blah.png' /></a>
@@ -36,3 +33,5 @@
         ?>
     </body>
 </html>
+
+
