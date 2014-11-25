@@ -244,6 +244,7 @@ input#playstop:checked + label {
 }
 #next {
     float:right;
+    cursor: pointer;
 }
 .content{
     max-width: 1024px;
