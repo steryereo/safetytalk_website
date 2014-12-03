@@ -10,8 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,300italic' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/normalize.css">
+        <link link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Ubuntu:300,300italic' >
         <link rel="stylesheet" href="css/main.css">
         <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
         
