@@ -217,6 +217,10 @@ a {
     position: relative;
     border:1em solid rgba(36,44,54,0.85);
     margin: auto;  
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    max-width: 100%;
 }
 input#playstop{
     opacity: 0;

@@ -2,7 +2,6 @@
     <?php
         include ('_head.php')
     ?>
-    <script src="js/main.js"></script>
 
     <body>
         <!--[if lt IE 7]>
@@ -28,6 +27,8 @@
         </div>
                     </div>
         
+        
+    <script src="js/main.js"></script>
         <?php
             include ('_footer_scripts.php');
         ?>
