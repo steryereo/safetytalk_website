@@ -25,13 +25,14 @@
                 <a href='http://safetytalk.bandcamp.com' target='blank'><img src='img/bandcamp.png' /></a>
             </div>
         </div>
-                    </div>
+        </div>
         
-        
-    <script src="js/main.js"></script>
+
         <?php
             include ('_footer_scripts.php');
         ?>
+        
+    <script src="js/main.js"></script>
     </body>
 </html>
 
