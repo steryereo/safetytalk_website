@@ -7,7 +7,7 @@ $(document).ready(function() {
                         <label for='playstop'><span></span></label> \
                     </div>", 
 
-                    "<img id='lizard' src='img/2014-11-22_lizard.jpg'> \
+                    "<img id='lizard' src='" + ( $(window).width() > 380 ? "img/2014-11-22_lizard.jpg" : "img/2014-11-22_lizard-small.jpg") + "'> \
                     <h6>11/22/2014 by Dave</h6>",
                 ];
 
