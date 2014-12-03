@@ -7,7 +7,7 @@ shuffle($images);
 <?php
     include ('_head.php')
 ?>
-<link rel="stylesheet" href="css/photos.css">
+<link rel="stylesheet" href="css/photos.min.css">
         
     <body>
         <!--[if lt IE 7]>
