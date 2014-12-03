@@ -7,7 +7,8 @@ shuffle($images);
 <?php
     include ('_head.php')
 ?>
-
+<link rel="stylesheet" href="css/photos.css">
+        
     <body>
         <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
