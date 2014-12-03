@@ -198,6 +198,10 @@ a {
     display: inline-block;
     width:2em;
 }
+#links {
+    margin-top: 2em;
+        clear:both;
+}
 #links img {
     opacity: 0.8;  
 }
@@ -298,13 +302,15 @@ input#playstop:checked + label {
         height: 6em;
     }
     #coverphoto img#animation {
-        max-width:94%;
-        border: 0;
-        margin:3%;
+        //max-width:94%;
+        //border: 0;
+        //margin:3%;
     }
     #coverphoto {
-    background-color:rgba(36,44,54,0.85);
+    width:100%;
+    //background-color:rgba(36,44,54,0.85);
     }
+
      
 @media only screen and (max-width: 42em) {
     #h-menu {
@@ -330,15 +336,20 @@ input#playstop:checked + label {
     }
     .content {
         background: transparent;
+}
+    #homecontent {
+        padding: 1em 0;
     }
     #coverphoto {
-        margin: 0;
+        //margin: 0;
         padding: 0;
     }
 
     #links a {
         display: block;
     }
+
+
 
 }
 
