@@ -147,6 +147,7 @@ a {
   z-index: -1;
 
 }
+
 #h-menu ul {
     margin-right: 2em;
 }
@@ -265,10 +266,14 @@ input#playstop:checked + label {
     margin-bottom: 50px;
      
 }
-.content p {
+.content p, .contentsection {
     padding :1em;
     background-color:rgba(200,200,200,0.85);
     margin: .5em;
+}
+.contentsection {
+    
+    background-color:rgba(200,200,200,0.85);
 }
 
 #homecontent {
