@@ -9,6 +9,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+         <link rel="canonical" href="http://safetytalkband.com/" /> 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Ubuntu:300,300italic' >
         <link rel="stylesheet" href="css/normalize.min.css">
