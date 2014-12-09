@@ -62,60 +62,81 @@ use Facebook\HttpClients\FacebookHttpable;
             
             // set counter to 0, because we only want to display 10 posts
             $i = 0;
-                $posts = $graphObject->asArray();
-                      // echo print_r($posts['data']);
-                foreach($posts['data'] as $post) {
-                  
-                echo print_r($post)."<br><br>";
-
-                // if ($post['type'] == 'status' || $post['type'] == 'link' || $post['type'] == 'photo') {
+            $posts = $graphObject->asArray();
+                   
+            foreach($posts['data'] as $post) {
                 
+                $type = $post->type;
+                 if ($type == 'status' || $type == 'link' || $type == 'photo'|| $type == 'video') {
+                    //echo "<code>".print_r($post)."</code><br><br>";
                     
-                //     // open up an fb-update div
-                //     echo "<div class=\"fb-update\">";
+                    // open up an fb-update div
+                    echo "<div class=\"contentsection\">";
+                        echo "post type: ".$type."<br>";
+                        // post the time
+                        //echo $post->created_time;
                         
-                //         // post the time
+                        // check if post type is a status
+                        if ($type == 'status') {
+                            echo "<p>" . $post->message . "</p>";
+                            echo "<p>".date("M jS, Y", (strtotime($post->created_time)))."</p>";
+                        }
                         
+                        // check if post type is a link
+                        if ($type == 'link') {
+                            if (empty($post->picture) === false) {
+                               echo "<p><a href='".$post->link."' target='_blank'><img src='" . $post->picture . "'></a></p>";
+                            }
+                            echo "<p>" . $post->name . "</p>";
+                            echo "<p>" . $post->message . "</p>";
+                            echo "<p><a href=\"" . $post->link . "\" target=\"_blank\">" . $post->link . "</a></p>";
+                            echo "<p>".date("M jS, Y", (strtotime($post->created_time)))."</p>";
+                        }
                         
-                //         // check if post type is a status
-                //         if ($post['type'] == 'status') {
-                //             echo "<h2>Status updated: " . date("jS M, Y", (strtotime($post['created_time']))) . "</h2>";
-                //             if (empty($post['story']) === false) {
-                //                 echo "<p>" . $post['story'] . "</p>";
-                //             } elseif (empty($post['message']) === false) {
-                //                 echo "<p>" . $post['message'] . "</p>";
-                //             }
-                //         }
-                        
-                //         // check if post type is a link
-                //         if ($post['type'] == 'link') {
-                //             echo "<h2>Link posted on: " . date("jS M, Y", (strtotime($post['created_time']))) . "</h2>";
-                //             echo "<p>" . $post['name'] . "</p>";
-                //             echo "<p><a href=\"" . $post['link'] . "\" target=\"_blank\">" . $post['link'] . "</a></p>";
-                //         }
-                        
-                //         // check if post type is a photo
-                //         if ($post['type'] == 'photo') {
-                //             echo "<h2>Photo posted on: " . date("jS M, Y", (strtotime($post['created_time']))) . "</h2>";
-                //             if (empty($post['story']) === false) {
-                //                 echo "<p>" . $post['story'] . "</p>";
-                //             } elseif (empty($post['message']) === false) {
-                //                 echo "<p>" . $post['message'] . "</p>";
-                //             }
-                //             echo "<p><a href=\"" . $post['link'] . "\" target=\"_blank\">View photo &rarr;</a></p>";
-                //         }
+                        // check if post type is a photo
+                        if ($type == 'photo') {
+                            echo "<p>" . $post->message . "</p>";
+                            echo "<p><a href='".$post->link."' target='_blank'><img src='" . $post->picture . "'></a></p>";
+                            echo "<p>".date("M jS, Y", (strtotime($post->created_time)))."</p>";
+                        }
+//<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/99714677&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+                        if ($type == 'video') {
+                            $youtube = $post->link;
+                            $source = $post->source;
+                            $embed = "embed/";
+                            if (strpos($youtube, "http://www.youtube.com/") === 0){
+                                $youtube = substr_replace($youtube, $embed, 23 , 0 );
+                                echo $post->message;
+                                echo "iframe width='200' height='110' src='". $youtube."' frameborder='0' allowfullscreen /iframe";
+                            }
+                            elseif(strpos($youtube, "http://youtu.be/") === 0){
+                                $youtube = str_replace("http://youtu.be/","http://www.youtube.com/", $youtube);
+                                $youtube = substr_replace($youtube, $embed, 23 , 0 );
+                                echo "".$post->message."";
+                                echo "iframe width='200' height='110' src='". $youtube."' frameborder='0' allowfullscreen /iframe";
+                            }
+                            elseif(strpos($source, "soundcloud") === 0){
+                                echo "".$post->message."";
+                                echo "<iframe> width='100%' height='166' scrolling='no' frameborder='no' src='". $source."' </iframe>";
+                            }else{
+                                echo "Video posted on: " . date("jS M, Y", (strtotime($post->created_time))) . "";
+                                echo "".$post->message."";
+                            }
+
+                            echo "<p>".date("M jS, Y", (strtotime($post->created_time)))."</p>";
+                        }
                     
                     
-                //     echo "</div>"; // close fb-update div
+                    echo "</div>"; // close fb-update div
                     
-                //     $i++; // add 1 to the counter if our condition for $post['type'] is met
+                //     $i++; // add 1 to the counter if our condition for $type is met
                 // }
                 
                 
                 // //  break out of the loop if counter has reached 10
                 // if ($i == 10) {
                 //     break;
-                // }
+                }
             } // end the foreach statement
             
             echo "</div>";
