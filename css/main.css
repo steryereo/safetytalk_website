@@ -293,6 +293,21 @@ input#playstop:checked + label {
             opacity: 40%;
     }
 
+
+    .post-media {
+        display: inline-block;
+        width:30%;
+        vertical-align: middle;
+    }
+    .post-media img {
+        max-height: 130px;
+        max-width:100%;
+    }
+    .post-content {
+        display: inline-block;
+        width: 60%
+    }
+
 @media only screen and (max-width: 62em) {
     #h-menu ul{
         max-width: 41em;
