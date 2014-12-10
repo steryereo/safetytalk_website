@@ -68,14 +68,13 @@
                 $type = $post->type;
                 //echo "<code>".print_r($post)."</code><br><br>";
                 $link = $post->link;
-
                 $source = $post->source;
 
                 $has_message = !empty($post->message); 
                 $has_picture = !empty($post->picture);
                 $has_youtube = strpos($link, "youtube") != FALSE || strpos($link, "youtu.be") != FALSE;
-                $has_soundcloud = strpos($link, "soundcloud") != FALSE;
-
+                $has_soundcloud = strpos($source, "soundcloud") != FALSE;
+                $has_fb_video = $type === 'video' && strpos($link, "facebook") != FALSE;
                 // echo "has message:".print_r($has_message);
                 // echo "message:" .$post->message."<br>";
 
@@ -84,23 +83,30 @@
                 // echo "has soundcloud:".$has_soundcloud."<br>";
                 
                 // check if post type is a status
-                if ($has_message || $has_soundcloud || $has_youtube || $has_picture)  {
+                if ($has_message || $has_soundcloud || $has_youtube || $has_picture || $has_fb_video)  {
+
                     echo "<div class='contentsection clearfix'>";
-                    if ($has_youtube){
-                        $dont_post = FALSE;
+                    if ($has_soundcloud){
+                        preg_match("/url=(.*)&/", $source, $source_stripped);
+                        echo "<iframe width='100%' height='166' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=". $source_stripped[1]."' ></iframe>";
+                    }
+                    elseif ($has_youtube){
                         parse_str( parse_url( $link, PHP_URL_QUERY ), $my_array_of_vars );
-                        $youtube_id = $my_array_of_vars['v'];    
-                        //echo $post->message;
+                        $youtube_id = $my_array_of_vars['v'];
                         echo "<div class ='post-media'><iframe width='200' height='110' src='http://www.youtube.com/embed/". $youtube_id. "' frameborder='0' ></iframe></div>";
+                    }
+                    elseif ($has_fb_video){
+                        parse_str( parse_url( $link, PHP_URL_QUERY ), $my_array_of_vars );
+                        $video_id = $my_array_of_vars['v'];    
+                        echo "<div class ='post-media'><iframe src='http://www.facebook.com/video/embed?video_id=".$video_id." width='100%' frameborder='0'></iframe>";
+                       // echo "<div class='playbutton'></div>";
+                        echo "<div><span class='caption'>click above to play video</span></div>";
+                        echo "</div>";
                     }
                     elseif ($has_picture) {
                         echo "<div class ='post-media'><a href='".$post->link."' target='_blank'><img src='" . $post->picture . "'></a></div>";
                     }
-                    elseif($has_soundcloud){
-                        preg_match("/url=(.*)&/", $source, $source_stripped);
-                        echo "".$post->message."";
-                        echo "<iframe width='100%' height='166' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=". $source_stripped[1]."' ></iframe>";
-                    }
+                    
                     echo "<div class='post-content'>";
                     if ($has_message) {
                         echo "<p>" . $post->message . "</p>";
@@ -110,33 +116,8 @@
                     echo "</div></div>\n"; //contentsection
                 }
                 
-                        // check if post type is a photo
-                        // if ($type == 'photo') {
-                        //     echo "<p>" . $post->message . "</p>";
-                        //     echo "<p><a href='".$post->link."' target='_blank'><img src='" . $post->picture . "'></a></p>";
-                        //     echo "<p>".date("M jS, Y", (strtotime($post->created_time)))."</p>";
-                        // }
-//<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/99714677&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-                        if ($type == 'video') {
-                            
-                            // $embed = "embed/";
-                            // if (strpos($link, "youtube") != FALSE){
-                            //     parse_str( parse_url( $link, PHP_URL_QUERY ), $my_array_of_vars );
-                            //     $youtube_id = $my_array_of_vars['v'];    
-                            //     echo "id= ".$youtube_id;
-                            //     echo $post->message;
-                            //     echo "<iframe width='200' height='110' src='http://www.youtube.com/embed/". $youtube_id. "' frameborder='0' />";
-                            // }
-                            // else{
-                            //     echo "Video posted on: " . date("jS M, Y", (strtotime($post->created_time))) . "";
-                            //     echo "".$post->message."";
-                            // }
-
-                            // echo "<p>".date("M jS, Y", (strtotime($post->created_time)))."</p>";
-                        }
                     
                     
-                    //echo "</div>"; // close fb-update div
                     
                 //     $i++; // add 1 to the counter if our condition for $type is met
                 // }
@@ -166,7 +147,9 @@
             include ('_footer_scripts.php');
         ?>
         <script type="text/javascript">
-        
+            // $(document).on('click', '.playbutton', function() {
+            //     $(this).siblings('.playbutton').hide();
+            // });        
         </script>
         
     </body>

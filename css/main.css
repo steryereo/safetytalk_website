@@ -119,6 +119,10 @@ a {
     text-decoration: none;
     color:#3E6C99;
 }
+.caption {
+    font-style: italic;
+    font-size: .75em;
+}
 .shadow {
     text-shadow: 0px 2px 2px #CCC;
 }
@@ -295,18 +299,33 @@ input#playstop:checked + label {
 
 
     .post-media {
-        display: inline-block;
-        width:30%;
-        vertical-align: middle;
+        width:auto;
+        position: relative;
     }
     .post-media img {
         max-height: 130px;
         max-width:100%;
     }
-    .post-content {
+/*    .playbutton {
+        width: 50px;
+        height: 40px;
+ position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+ -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-image: url(../img/play.png);
+  pointer-events:none;
+    }*/
+    /*.post-content {
         display: inline-block;
         width: 60%
-    }
+    }*/
 
 @media only screen and (max-width: 62em) {
     #h-menu ul{
