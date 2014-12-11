@@ -69,7 +69,7 @@
                    
             foreach($posts['data'] as $post) {
                 $type = $post->type;
-                //echo "<code>".print_r($post)."</code><br><br>";
+               // echo "<code>".print_r($post)."</code><br><br>";
                 $link = $post->link;
                 $source = $post->source;
 
@@ -83,17 +83,24 @@
                 
                 // check if post type is a status
                 if ($has_message || $has_soundcloud || $has_youtube || $has_picture || $has_fb_video)  {
-
+                    $content_obj=null;
                     if (empty($post->object_id) == FALSE) {
-                        $content_obj = (new FacebookRequest($session, "GET", "/".$post->object_id))->execute()->getGraphObject()->asArray();
+                        try {
+                            $content_obj = (new FacebookRequest($session, "GET", "/".$post->object_id))->execute()->getGraphObject()->asArray();
+                        } catch(FacebookRequestException $e) {
+                            echo "Exception occured, code: " . $e->getCode();
+                            echo " with message: " . $e->getMessage();
+                        }   
+
                         // echo "<p>";
                         // echo print_r($content_obj['embed_html']);
                         // echo "</p>";
                      }
-
                     echo "<div class='contentsection clearfix'>";
                     echo "<header class='post-header'>";
-                    echo "<h3>".$post->name."</h3>";
+                    if (!empty($post->name)) {
+                        echo "<h3>".$post->name."</h3>";
+                    }   
                     echo "<span class='post-date'>".date("M jS, Y", (strtotime($post->created_time)))."</span>";
                     echo "</header>";
                     if ($has_soundcloud){
