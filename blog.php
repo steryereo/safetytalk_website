@@ -55,7 +55,10 @@
         <div id='row1'>
         <div class="content">
         <!-- <div class="contentsection"> -->
-
+        <header class='content-header'>
+            <h1><em>Safety Talk</em></h1>
+            <h5>Psychedelic Country Surf from Oalkand, California</h5>
+        </header>
         <?php
             
             // echo "<div class=\"fb-feed\">";
@@ -75,44 +78,58 @@
                 $has_youtube = strpos($link, "youtube") != FALSE || strpos($link, "youtu.be") != FALSE;
                 $has_soundcloud = strpos($source, "soundcloud") != FALSE;
                 $has_fb_video = $type === 'video' && strpos($link, "facebook") != FALSE;
-                // echo "has message:".print_r($has_message);
-                // echo "message:" .$post->message."<br>";
-
-                // echo "has picture:".$has_picture."<br>";
-                // echo "has youtube:".$has_youtube."<br>";
-                // echo "has soundcloud:".$has_soundcloud."<br>";
+                $has_event = $type === 'link' && strpos($link, "event") != FALSE;
+              
                 
                 // check if post type is a status
                 if ($has_message || $has_soundcloud || $has_youtube || $has_picture || $has_fb_video)  {
 
+                    if (empty($post->object_id) == FALSE) {
+                        $content_obj = (new FacebookRequest($session, "GET", "/".$post->object_id))->execute()->getGraphObject()->asArray();
+                        // echo "<p>";
+                        // echo print_r($content_obj['embed_html']);
+                        // echo "</p>";
+                     }
+
                     echo "<div class='contentsection clearfix'>";
+                    echo "<header class='post-header'>";
+                    echo "<h3>".$post->name."</h3>";
+                    echo "<span class='post-date'>".date("M jS, Y", (strtotime($post->created_time)))."</span>";
+                    echo "</header>";
                     if ($has_soundcloud){
                         preg_match("/url=(.*)&/", $source, $source_stripped);
-                        echo "<iframe width='100%' height='166' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=". $source_stripped[1]."' ></iframe>";
+                        echo "<div class='post-media'><iframe width='100%' height='166' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=". $source_stripped[1]."' ></iframe></div>";
                     }
                     elseif ($has_youtube){
                         parse_str( parse_url( $link, PHP_URL_QUERY ), $my_array_of_vars );
                         $youtube_id = $my_array_of_vars['v'];
-                        echo "<div class ='post-media'><iframe width='200' height='110' src='http://www.youtube.com/embed/". $youtube_id. "' frameborder='0' ></iframe></div>";
+                        echo "<div class='post-media'><div class='video-wrapper'><iframe width='100%' src='http://www.youtube.com/embed/". $youtube_id. "' frameborder='0' ></iframe></div></div>";
                     }
                     elseif ($has_fb_video){
                         parse_str( parse_url( $link, PHP_URL_QUERY ), $my_array_of_vars );
                         $video_id = $my_array_of_vars['v'];    
-                        echo "<div class ='post-media'><iframe src='http://www.facebook.com/video/embed?video_id=".$video_id." width='100%' frameborder='0'></iframe>";
-                       // echo "<div class='playbutton'></div>";
+                        echo "<div class ='post-media'><div class='video-wrapper'><iframe src='http://www.facebook.com/video/embed?video_id=".$video_id." width='100%' frameborder='0'></iframe></div>";
+                        //echo "<div class='post-media'><div class='video-wrapper'>".$content_obj['embed_html']."</div></div>";
                         echo "<div><span class='caption'>click above to play video</span></div>";
                         echo "</div>";
                     }
                     elseif ($has_picture) {
-                        echo "<div class ='post-media'><a href='".$post->link."' target='_blank'><img src='" . $post->picture . "'></a></div>";
+                        echo "<div class='post-media'><a href='".$post->link."' target='_blank'><img src='" . $post->picture . "'></a></div>";
                     }
-                    
+                    elseif ($has_event) {
+                        preg_match("/\/events\/(.*)\//", $link, $event_id);
+                        //echo "event_id=".print_r($event_id);
+                        $event_obj = (new FacebookRequest($session, "GET", "/".$event_id[1]."/photos"))->execute()->getGraphObject()->asArray()['data'];
+                        $last_photo = array_pop($event_obj)->images[0]->source;
+                        //echo "event".print_r($last_photo);
+                        echo "<div class='post-media'><a href='".$post->link."' target='_blank'><img src='".$last_photo."'></a></div>";
+                    }
                     echo "<div class='post-content'>";
                     if ($has_message) {
                         echo "<p>" . $post->message . "</p>";
                         //echo "<p><a href=\"" . $post->link . "\" target=\"_blank\">" . $post->link . "</a></p>";
                     }
-                    echo "<span class='post-date'>".date("M jS, Y", (strtotime($post->created_time)))."</span>";
+                    
                     echo "</div></div>\n"; //contentsection
                 }
                 
