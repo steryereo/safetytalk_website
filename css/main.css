@@ -326,8 +326,8 @@ border-radius: 5px;
         margin: 1em auto;
     }
     .post-media img {
-        max-height: 130px;
-        max-width:100%;
+        max-width: 100%;
+        //max-width:640px;        
     }
     .video-wrapper {
     position: relative;

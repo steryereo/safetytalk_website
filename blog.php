@@ -88,8 +88,8 @@
                         try {
                             $content_obj = (new FacebookRequest($session, "GET", "/".$post->object_id))->execute()->getGraphObject()->asArray();
                         } catch(FacebookRequestException $e) {
-                            echo "Exception occured, code: " . $e->getCode();
-                            echo " with message: " . $e->getMessage();
+                            // echo "Exception occured, code: " . $e->getCode();
+                            // echo " with message: " . $e->getMessage();
                         }   
 
                         // echo "<p>";
@@ -121,14 +121,26 @@
                         echo "</div>";
                     }
                     elseif ($has_picture) {
-                        echo "<div class='post-media'><a href='".$post->link."' target='_blank'><img src='" . $post->picture . "'></a></div>";
+                        if ($type === 'photo') {
+                            $img_url = $content_obj['source'];
+                        } 
+                        if (empty($img_url)) {
+                            $img_url = $post->picture;
+                        }
+                        echo "<div class='post-media'><a href='".$post->link."' target='_blank'><img src='" . $img_url . "'></a></div>";
                     }
                     elseif ($has_event) {
                         preg_match("/\/events\/(.*)\//", $link, $event_id);
                         //echo "event_id=".print_r($event_id);
-                        $event_obj = (new FacebookRequest($session, "GET", "/".$event_id[1]."/photos"))->execute()->getGraphObject()->asArray()['data'];
-                        $last_photo = array_pop($event_obj)->images[0]->source;
+                        try {
+                            $event_obj = (new FacebookRequest($session, "GET", "/".$event_id[1]."/photos"))->execute()->getGraphObject()->asArray()['data'];                    
+                            $last_photo = array_pop($event_obj)->images[0]->source;
                         //echo "event".print_r($last_photo);
+                        } catch(FacebookRequestException $e) {
+                            // echo "Exception occured, code: " . $e->getCode();
+                            // echo " with message: " . $e->getMessage();
+                            $last_photo = $post->picture;
+                        } 
                         echo "<div class='post-media'><a href='".$post->link."' target='_blank'><img src='".$last_photo."'></a></div>";
                     }
                     echo "<div class='post-content'>";
