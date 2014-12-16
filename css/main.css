@@ -105,7 +105,7 @@ background-attachment: fixed;
 
 h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
-    color: rgba(200,200,200,0.85);
+    color: #C8C8C8;
     margin: 0;
     letter-spacing: .1em;
 }
@@ -186,10 +186,10 @@ a {
     max-width: 100%;
 }
 
-#h-menu li a {
+#h-menu li a, #mobile-title {
     color: #31B0D1; 
 }
-#h-menu li a.shadow,#h-menu li a:hover {
+#h-menu li a.shadow,#h-menu li a:hover, #menu-icon:hover {
 
     color: #30D130;
 }
@@ -202,6 +202,10 @@ a {
 #h-menu li:last-child {
     margin-right: 0;
 }
+#h-menu li#mobile-title, #menutoggle {
+    display: none;
+}
+
 #row1 {
     //max-width: 60em;
     margin: auto;
@@ -402,29 +406,54 @@ border-radius: 5px;
      
 @media only screen and (max-width: 47em) {
     .top-spacer {
-        display: none;
+        margin: 0;
+        //display: none;
+    }
+    #h-menu li#mobile-title {
+
+        position: relative;
+        display:block;
+        /*padding-top: .25em;*/
+        font-size: 1.8em;
+        z-index: 999;
+        text-align: left;
+        padding-left: 1em;
+    }
+    #menu-icon {
+        position: relative;
+        display: inline-block;
+        float:right;
+        margin:0 1em;
+        font-style: normal;
     }
     #h-menu {
-        position: relative;
+        //position: relative;
         margin-bottom: 0;
+        height:3em;
     }
-    #h-menu ul{
+    #nav-list {
         width: 100%;
+        visibility:hidden;
+        position: absolute;
+        background-color:rgba(200,200,200,0.95);
+        top: 3em;
     }
     #h-menu li {
         font-size: 1.5em;
         display: block;
         margin: 0;
+        text-align: left;
+        padding-left: 1em;
     }
-    #h-menu li#logo-item {
-        margin-top:auto;
-        margin-right: 5%;
+    #-link {
+        display: none;
     }
-        #nav-bg {
-        height: 100%;
+    #nav-bg {
+        height: 3em;
+        background-color:rgba(200,200,200,0.95); 
     }
     #row1 {
-        margin-top: 1em;
+        //margin-top: 1em;
         background-color:rgba(36,44,54,0.85);
     }
     .content {
@@ -441,6 +470,37 @@ border-radius: 5px;
     #links a {
         display: block;
     }
+    #menutoggle {
+    position:absolute;
+    opacity: 0;
+    cursor:pointer;
+    left:-100%;
+    top:-100%;
+
+    }
+    /*
+#test {
+    height:100px;
+    width: 100px;
+    background-color: #F00;
+    visibility: hidden;
+}*/
+    #menutoggle:checked ~ ul {
+        visibility: visible;
+    }
+
+    
+
+   /* nav li {
+
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+        margin: 0;
+
+    }*/
+
+    
 
 
 

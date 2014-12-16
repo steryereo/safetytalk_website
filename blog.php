@@ -49,7 +49,6 @@
 
         <?php
             include ('_nav.php');
-
         //echo print_r($graphObject->getPropertyNames());
         ?>
         <div id='row1'>
@@ -59,6 +58,11 @@
             <h1><em>Safety Talk</em></h1>
             <h5>Psychedelic Country Surf from Oalkand, California</h5>
         </header>
+            <div id='links'>
+                <a href='http://www.facebook.com/safetytalkinfinity' target='blank'><img src='img/blah.png' /></a>
+                <a href='http://soundcloud.com/safety-talk' target='blank'><img src='img/soundcloud.png' /></a>
+                <a href='http://safetytalk.bandcamp.com' target='blank'><img src='img/bandcamp.png' /></a>
+            </div>
         <?php
             
             // echo "<div class=\"fb-feed\">";
@@ -168,11 +172,7 @@
         ?>
 <!-- <div class="fb-like-box" data-href="https://www.facebook.com/safetytalkinfinity" data-width="500" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="true"></div>
  -->
-            <div id='links'>
-                <a href='http://www.facebook.com/safetytalkinfinity' target='blank'><img src='img/blah.png' /></a>
-                <a href='http://soundcloud.com/safety-talk' target='blank'><img src='img/soundcloud.png' /></a>
-                <a href='http://safetytalk.bandcamp.com' target='blank'><img src='img/bandcamp.png' /></a>
-            </div>
+
         </div>
     </div>
 
