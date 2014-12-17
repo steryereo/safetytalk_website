@@ -16,6 +16,7 @@
         //echo print_r($graphObject->getPropertyNames());
         ?>
         <div id='row1'>
+        <!-- <div id='debug' style="position:fixed; right:10px;"></div> -->
          <?php
             include ('_contentheader.php');
         //echo print_r($graphObject->getPropertyNames());
@@ -64,8 +65,10 @@
     <script type="text/javascript">
         var loading = false;
         $(window).scroll(function(){
-            if($(window).scrollTop() == $(document).height() - $(window).height()){
-                if (!loading) {
+           // $('#debug').html("window scrollTop=" + $(window).scrollTop() + "<br>document height - window height" + ($(document).height() - $(window).height()));
+           if (!loading) {
+            if($(window).scrollTop() >= $(document).height() - $(window).height()){
+                
                     loading = true;
                     $('div#loadmoreajaxloader').show();
                     var numPosts = $('#posts .contentsection').length;

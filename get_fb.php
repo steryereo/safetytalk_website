@@ -95,7 +95,7 @@
                     elseif ($has_fb_video){
                         parse_str( parse_url( $link, PHP_URL_QUERY ), $my_array_of_vars );
                         $video_id = $my_array_of_vars['v'];    
-                        $output .= "<div class ='post-media'><div class='video-wrapper'><iframe src='http://www.facebook.com/video/embed?video_id=".$video_id." width='100%' frameborder='0'></iframe></div>";
+                        $output .= "<div class ='post-media'><div class='video-wrapper'><iframe width='100%' frameborder='0' style='overflow:hidden;' src='http://www.facebook.com/video/embed?video_id=".$video_id."' ></iframe></div>";
                         //$output .= "<div class='post-media'><div class='video-wrapper'>".$content_obj['embed_html']."</div></div>";
                         $output .= "<div><span class='caption'>click above to play video</span></div>";
                         $output .= "</div>";
