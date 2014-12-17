@@ -2,7 +2,7 @@
     <?php
         include ('_head.php')
     ?>
-
+    <div id='preload' style = "background: url('img/loading.gif') no-repeat -9999px -9999px;"> </div>
     <body>
         <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -43,7 +43,7 @@
         </section>
 <!-- <div class="fb-like-box" data-href="https://www.facebook.com/safetytalkinfinity" data-width="500" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="true"></div>
  -->
-<div id="loadmoreajaxloader" style="visibility:hidden;"><center><img src="img/loading.gif" /></center></div>
+<div id="loadmoreajaxloader" style="display:none;"><center><img src="img/loading.gif" /></center></div>
         </div>
     </div>
 
