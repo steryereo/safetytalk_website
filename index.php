@@ -28,7 +28,7 @@ $path_info = parse_path();
 $callhtml = $path_info['call'] . ".html";
 $callphp = $path_info['call'] . ".php";
 if (empty($path_info['call'])) {
-  include ('home.php');
+  include ('blog.php');
 }
 elseif (file_exists($callphp)) {
 	include($callphp);

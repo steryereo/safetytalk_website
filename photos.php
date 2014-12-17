@@ -22,6 +22,10 @@ shuffle($images);
 
         <div id='row1'>
         <!-- <section class='content'> -->
+        <?php
+            include ('_contentheader.php');
+        //echo print_r($graphObject->getPropertyNames());
+        ?>
         	<div id='gallery' class="content" >
         		<?php
         			foreach($images as $img) {

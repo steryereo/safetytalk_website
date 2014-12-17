@@ -14,6 +14,10 @@ include('_head.php')
     ?>
     <!-- BEGIN CONTENT -->
     <div id='row1'>
+    <?php
+            include ('_contentheader.php');
+        //echo print_r($graphObject->getPropertyNames());
+        ?>
         <section class='content'>
         <h2>Upcoming Shows</h2> 
             <p class="show-listing">
