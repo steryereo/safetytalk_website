@@ -24,22 +24,30 @@ return $path;
 }
 
 $path_info = parse_path();
+
+if ($path_info['call'] == "loadmore.php") {
+  include('loadmore.php');
+}
+if ($path_info['call'] == "get_fb.php") {
+  include('get_fb.php');
+}
 //echo '<pre>'.print_r($path_info, true).'</pre>';
 $callhtml = $path_info['call'] . ".html";
 $callphp = $path_info['call'] . ".php";
+
 if (empty($path_info['call'])) {
   include ('blog.php');
 }
 elseif (file_exists($callphp)) {
-	include($callphp);
+  include($callphp);
 }
 elseif (file_exists($callhtml)) {
-	include($callhtml);
+  include($callhtml);
 }
 else {
 
-//echo '<pre>'.print_r($path_info, true).'</pre>';
-	header( 'Location: http://safetytalkband.com' ) ;
+  //echo '<pre>'.print_r($path_info, true).'</pre>';
+  header( 'Location: http://safetytalkband.com' ) ;
   die();
 }
 ?>

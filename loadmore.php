@@ -20,7 +20,9 @@ if ($posts) {
 		//echo $posts[$last_id];   	
 	}
 	for ($x = 0; $x < $c; ++$x) {
-		$result .= $posts[$starting_index+$x]['html'];
+		if (!empty($posts[$starting_index+$x])){
+			$result .= $posts[$starting_index+$x]['html'];
+		}
 	}
 	echo $result;
 } else {
