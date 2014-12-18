@@ -1,4 +1,6 @@
  <?
+date_default_timezone_set('America/Los_Angeles');
+
     session_start();
     // include the facebook sdk
     require_once('vendor/autoload.php');
