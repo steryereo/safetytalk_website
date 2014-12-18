@@ -29,16 +29,16 @@
                 <h2>What's Happening Now</h2>
         <?php
 
-            $i = 0;
-            $posts = file_get_contents("fb_feed.txt");
-            if ($posts) {
-                $posts = unserialize($posts);
-                for ($i=0; $i<2; ++$i) {
-                    echo $posts[$i];
-                }
-            } else {
-                echo "something went wrong";
-            }
+            // $i = 0;
+            // $posts = file_get_contents("fb_feed.txt");
+            // if ($posts) {
+            //     $posts = unserialize($posts);
+            //     for ($i=0; $i<2; ++$i) {
+            //         echo $posts[$i]['html'];
+            //     }
+            // } else {
+            //     echo "something went wrong";
+            // }
         ?>
         
         </section>
@@ -64,25 +64,42 @@
 
     <script type="text/javascript">
         var loading = false;
-        $(window).scroll(function(){
-           // $('#debug').html("window scrollTop=" + $(window).scrollTop() + "<br>document height - window height" + ($(document).height() - $(window).height()));
-           if (!loading) {
-            if($(window).scrollTop() >= $(document).height() - $(window).height()){
-                
+        var noMore = false;
+
+        function getNextPost(count) {
+            if (!loading && !noMore) {
+                    if(typeof(count)==='undefined') count=1;
                     loading = true;
                     $('div#loadmoreajaxloader').show();
-                    var numPosts = $('#posts .contentsection').length;
+                    //var numPosts = $('#posts .contentsection').length;
+
+                    var lastID = $('#posts .contentsection').last().attr('id') || null;
+                    var postID = lastID ? lastID.replace("post-", "") : null;
                     $.ajax({
                         url: "loadmore.php",
-                        data: {n:numPosts},
+                        data: {n:postID, c:count},
                         success: function(html){
                             if(html){
                                 $("#posts").append(html);
+                            }
+                            else {
+                                noMore = true;
                             }
                             $('div#loadmoreajaxloader').hide();
                             loading = false;
                         }
                     });
+                }
+        }
+        $(function(){
+            getNextPost(2);
+        });
+
+        $(window).scroll(function(){
+           // $('#debug').html("window scrollTop=" + $(window).scrollTop() + "<br>document height - window height" + ($(document).height() - $(window).height()));
+           if (!loading) {
+            if($(window).scrollTop() >= $(document).height() - $(window).height()){
+                    getNextPost();
                 }
             }
         });

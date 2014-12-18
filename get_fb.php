@@ -76,7 +76,7 @@
                         // $output .= print_r($content_obj['embed_html']);
                         // $output .= "</p>";
                      }
-                    $output .= "<div class='contentsection clearfix'>";
+                    $output .= "<div class='contentsection clearfix' id='post-{$post->id}'>";
                     $output .= "<header class='post-header'>";
                     if (!empty($post->name)) {
                         $output .= "<h3>".$post->name."</h3>";
@@ -131,12 +131,12 @@
                     
                     $output .= "</div></div>\n"; //contentsection
 
-                $posts_output[] = $output;
+                $posts_output[] = array('id'=>$post->id, 'html'=>$output);
                 }
             } // end the foreach statement
             $string_data = serialize($posts_output);
             if (file_put_contents("fb_feed.txt", $string_data)) {
-                echo "successfully wrote facebook feed to file";
+                echo "successfully wrote facebook feed to file ".date("Y-m-d h:i:sa");
             } else {
                 echo "failed to write facebook feed to file";
             }
