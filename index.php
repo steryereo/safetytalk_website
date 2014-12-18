@@ -39,7 +39,7 @@ elseif (file_exists($callhtml)) {
 else {
 
 //echo '<pre>'.print_r($path_info, true).'</pre>';
-	header( 'Location: http://www.safetytalkband.com' ) ;
+	header( 'Location: http://safetytalkband.com' ) ;
   die();
 }
 ?>
