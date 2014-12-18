@@ -308,6 +308,13 @@ input#playstop:checked + label {
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
+.header-titles {
+    text-align: right;
+    display:inline-block;
+    width:auto;
+    float:left;
+    margin-left: 0.5em;
+}
 .header-title {
     margin-top: 0.5em;
     text-align: right;
@@ -474,6 +481,10 @@ background-color:#DDD;
     #links {
         float: none;
         display: block;
+        clear:both;
+    }
+    .header-titles {
+        float:none;
     }
     .content {
         background: transparent;
