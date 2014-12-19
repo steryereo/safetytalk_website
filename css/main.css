@@ -141,6 +141,7 @@ a {
     box-sizing: border-box;         /* Opera/IE 8+ */
     /*max-width: 100%;*/
     width:100%;
+    z-index: 999;
 
 
 }
@@ -313,7 +314,7 @@ input#playstop:checked + label {
     display:inline-block;
     width:auto;
     float:left;
-    margin-left: 0.5em;
+            margin-left: 0.5em;
 }
 .header-title {
     margin-top: 0.5em;
