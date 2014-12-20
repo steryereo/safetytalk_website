@@ -18,6 +18,9 @@ date_default_timezone_set('America/Los_Angeles');
     use Facebook\HttpClients\FacebookCurlHttpClient;
     use Facebook\HttpClients\FacebookHttpable;
 
+
+    $soundcloud_client_id = '177728306652b5a89c88b51094345326';
+
     FacebookSession::setDefaultApplication('833602023371005', '41e1ccf2c920aba7ca18a7b7c5224a66');
     $session = new FacebookSession('833602023371005|Wat1iKW1QXWjyfFCw9q7gr0W2fM');
     if ($session) {
@@ -58,7 +61,8 @@ date_default_timezone_set('America/Los_Angeles');
                 $has_message = !empty($post->message); 
                 $has_picture = !empty($post->picture);
                 $has_youtube = strpos($link, "youtube") != FALSE || strpos($link, "youtu.be") != FALSE;
-                $has_soundcloud = strpos($source, "soundcloud") != FALSE;
+                $has_soundcloud_source = strpos($source, "soundcloud") != FALSE;
+                $has_soundcloud_link = strpos($link, "soundcloud") != FALSE;
                 $has_fb_video = $type === 'video' && strpos($link, "facebook") != FALSE;
                 $has_event = $type === 'link' && strpos($link, "event") != FALSE;
               
@@ -85,9 +89,18 @@ date_default_timezone_set('America/Los_Angeles');
                     }   
                     $output .= "<span class='post-date'>".date("M jS, Y", (strtotime($post->created_time)))."</span>";
                     $output .= "</header>";
-                    if ($has_soundcloud){
+                    if ($has_soundcloud_source){
                         preg_match("/url=(.*)&/", $source, $source_stripped);
                         $output .= "<div class='post-media'><iframe width='100%' height='166' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=". $source_stripped[1]."' ></iframe></div>";
+                    }
+                    if ($has_soundcloud_link){
+                        $encoded_url = urlencode($link);
+                        $call_url = "https://api.soundcloud.com/resolve.json?url=".$encoded_url."&client_id=".$soundcloud_client_id;
+                        $id = json_decode(file_get_contents($call_url))->id;
+                        //echo $id;
+                        $output .= "<div class='post-media'><iframe width='100%' height='166' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/".$id."&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false'></iframe></div>";
+
+                        //$output .= "<div class='post-media'><iframe width='100%' height='166' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=". $source_stripped[1]."' ></iframe></div>";
                     }
                     elseif ($has_youtube){
                         parse_str( parse_url( $link, PHP_URL_QUERY ), $my_array_of_vars );
