@@ -49,7 +49,7 @@
 #lightbox-content {
 height:100%;
 }
-.is-loading {
+.is-loading {pp
   background-image: url(../img/loading.gif);
   background-position: center;
   background-repeat: no-repeat;
@@ -64,3 +64,5 @@ height:100%;
     -webkit-border-radius: 40% / 10%;
     -moz-border-radius: 40%/ 10%;
     border-radius: 40% / 10%;
+}
+

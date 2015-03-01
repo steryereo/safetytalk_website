@@ -93,7 +93,7 @@ date_default_timezone_set('America/Los_Angeles');
                         preg_match("/url=(.*)&/", $source, $source_stripped);
                         $output .= "<div class='post-media'><iframe width='100%' height='166' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=". $source_stripped[1]."' ></iframe></div>";
                     }
-                    if ($has_soundcloud_link){
+                    elseif ($has_soundcloud_link){
                         $encoded_url = urlencode($link);
                         $call_url = "https://api.soundcloud.com/resolve.json?url=".$encoded_url."&client_id=".$soundcloud_client_id;
                         $id = json_decode(file_get_contents($call_url))->id;

@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Safety Talk</title>
-        <meta name="description" content="">
+        <meta name="description" content="Psychedelic Country Surf from Oakland, California">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
          <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
