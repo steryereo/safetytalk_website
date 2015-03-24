@@ -8,6 +8,7 @@
         <title>Safety Talk</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="Om74dDcUN12MV4apaT0SdiEpYUygqdSAHupSvE9ZMB8" />
 
          <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Ubuntu:300,300italic' >
