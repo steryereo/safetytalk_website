@@ -156,7 +156,7 @@ date_default_timezone_set('America/Los_Angeles');
             } // end the foreach statement
             $string_data = serialize($posts_output);
             if (file_put_contents("fb_feed.txt", $string_data)) {
-                echo "successfully wrote facebook feed to file ".date("Y-m-d h:i:sa");
+                echo "successfully wrote facebook feed to file ".date("Y-m-d h:i:sa")."v2";
             } else {
                 echo "failed to write facebook feed to file";
             }
