@@ -64,7 +64,7 @@ date_default_timezone_set('America/Los_Angeles');
                 $has_soundcloud_source = strpos($source, "soundcloud") != FALSE;
                 $has_soundcloud_link = strpos($link, "soundcloud") != FALSE;
                 $has_fb_video = $type === 'video' && strpos($link, "facebook") != FALSE;
-                $has_event = $type === 'link' && strpos($link, "event") != FALSE;
+                $has_event = $type === 'link' && strpos($link, "event") !== FALSE;
               
                 
                 // check if post type is a status
@@ -134,6 +134,7 @@ date_default_timezone_set('America/Los_Angeles');
                         try {
                             $event_obj = (new FacebookRequest($session, "GET", "/".$event_id[1]."/photos"))->execute()->getGraphObject()->asArray()['data'];                    
                             $last_photo = array_pop($event_obj)->images[0]->source;
+                            // $last_photo = $post->picture;
                         //$output .= "event".print_r($last_photo);
                         } catch(FacebookRequestException $e) {
                             // $output .= "Exception occured, code: " . $e->getCode();
