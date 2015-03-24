@@ -21,7 +21,7 @@ include('_head.php')
         <section class='content'>
         <h2>Upcoming Shows</h2> 
              <p class="show-listing">
-                3/29/2015: <a href="http://www.storkcluboakland.com/" target="blank">Stork Club, Oakland, CA &nbsp<a href="https://www.facebook.com/events/618531744948237/" target="blank"><img src="img/fb_white_29.png"></a>
+             3/29/2015: <a href="https://www.facebook.com/events/699407943512707/" target="blank">Stork Club, Oakland, CA</a> &nbsp<a href="https://www.facebook.com/events/699407943512707/" target="blank"><img src="img/fb_white_29.png"></a>
             </p>
             <p class="show-listing">
             <a href="./booking">book us</a> for your next show.
@@ -29,8 +29,14 @@ include('_head.php')
         <br><br>
         <h2>Past Shows</h2>
             <p class="show-listing">
-                9/25/2014: <a href="http://publicsf.com/exhibitions/hanna-quevedo-11353" target="blank">Hanna Quevedo Photo Gallery Opening </a> at Public Works SF Roll Up Gallery &nbsp<a href="https://www.facebook.com/events/733163130087603/" target="blank"><img src="img/fb_white_29.png"></a>
-            </p> 
+             3/21/2015: <a href="https://www.facebook.com/events/1427922270840519/" target="blank">Horror Cave Beach Show,</a> &nbsp Sutro Baths, San Francisco, CA
+            </p>
+            <p class="show-listing">
+             3/10/2015: Psychomagic at&nbsp<a href="http://elismilehigh.com/" target="blank">Eli's Mile High Club, Oakland, CA</a> &nbsp<a href="https://www.facebook.com/events/401535143362298/" target="blank"><img src="img/fb_white_29.png"></a>
+            </p>
+            <p class="show-listing">
+                3/7/2015: <a href="https://www.facebook.com/events/1586746001566414/" target="blank">Safety Talk and Friends presents: Generator Jamz in the Park!,</a> &nbsp Golden Gate Park / Baker Beach, San Francisco, CA
+            </p>
             <p class="show-listing">
                 9/25/2014: <a href="http://publicsf.com/exhibitions/hanna-quevedo-11353" target="blank">Hanna Quevedo Photo Gallery Opening </a> at Public Works SF Roll Up Gallery &nbsp<a href="https://www.facebook.com/events/733163130087603/" target="blank"><img src="img/fb_white_29.png"></a>
             </p>
