@@ -116,11 +116,14 @@ date_default_timezone_set('America/Los_Angeles');
                         $output .= "</div>";
                     }
                     elseif ($has_picture) {
-                        $img_url = null;
+                        $img_url = "";
                         if ($type === 'photo') {
                             $img_url = $content_obj['source'];
+                            if (empty($img_url)) {
+                               $img_url = $post->picture;
+                            }
                         } 
-                        if (empty($img_url)) {
+                        else {
                             $img_url = $post->picture;
                         }
                         $output .= "<div class='post-media'><a href='".$post->link."' target='_blank'><img src='" . $img_url . "'></a></div>";
