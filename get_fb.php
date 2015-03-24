@@ -116,6 +116,7 @@ date_default_timezone_set('America/Los_Angeles');
                         $output .= "</div>";
                     }
                     elseif ($has_picture) {
+                        $img_url = null;
                         if ($type === 'photo') {
                             $img_url = $content_obj['source'];
                         } 
