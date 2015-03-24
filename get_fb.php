@@ -133,8 +133,8 @@ date_default_timezone_set('America/Los_Angeles');
                         //$output .= "event_id=".print_r($event_id);
                         try {
                             $event_obj = (new FacebookRequest($session, "GET", "/".$event_id[1]."/photos"))->execute()->getGraphObject()->asArray()['data'];                    
-                            //$last_photo = array_pop($event_obj)->images[0]->source;
-                            $last_photo = $post->picture;
+                            $last_photo = array_pop($event_obj)->images[0]->source;
+                            //$last_photo = $post->picture;
                         //$output .= "event".print_r($last_photo);
                         } catch(FacebookRequestException $e) {
                             // $output .= "Exception occured, code: " . $e->getCode();
