@@ -85,16 +85,16 @@ $('.photo img').click(function(e) {
             //place href as img src value
             $('#lightbox-content').html('<img src="' + image_href + '" style = "max-height:'+ $(window).height()*.9 +'px;max-width:'+ $(window).width()*.9 +'px;"/>');
     
-        $('#lightbox-content').addClass('is-loading');
-        $('#lightbox-content img').hide ();
+            $('#lightbox-content').addClass('is-loading');
+            $('#lightbox-content img').hide ();
 
 
 
-        imagesLoaded( container2, function() {
-    $('#lightbox-content').removeClass('is-loading');
-           $('#lightbox-content img').fadeIn();
+            imagesLoaded( container2, function() {
+            $('#lightbox-content').removeClass('is-loading');
+                $('#lightbox-content img').fadeIn();
  
-} );
+            });
             //show lightbox window - you could use .show('fast') for a transition
             $('#lightbox').fadeIn();
         }
@@ -113,7 +113,6 @@ $('.photo img').click(function(e) {
             $('body').append(lightbox);
 
             $('#lightbox').fadeIn();
-                //Click anywhere on the page to get rid of lightbox window
 
         }
         

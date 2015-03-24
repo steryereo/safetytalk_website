@@ -64,7 +64,7 @@ date_default_timezone_set('America/Los_Angeles');
                 $has_soundcloud_source = strpos($source, "soundcloud") != FALSE;
                 $has_soundcloud_link = strpos($link, "soundcloud") != FALSE;
                 $has_fb_video = $type === 'video' && strpos($link, "facebook") != FALSE;
-                $has_event = $type === 'link' && strpos($link, "event") != FALSE;
+                $has_event = $type === 'link' && strpos($link, "event") !== FALSE;
               
                 
                 // check if post type is a status
@@ -93,7 +93,7 @@ date_default_timezone_set('America/Los_Angeles');
                         preg_match("/url=(.*)&/", $source, $source_stripped);
                         $output .= "<div class='post-media'><iframe width='100%' height='166' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=". $source_stripped[1]."' ></iframe></div>";
                     }
-                    if ($has_soundcloud_link){
+                    elseif ($has_soundcloud_link){
                         $encoded_url = urlencode($link);
                         $call_url = "https://api.soundcloud.com/resolve.json?url=".$encoded_url."&client_id=".$soundcloud_client_id;
                         $id = json_decode(file_get_contents($call_url))->id;
@@ -116,10 +116,14 @@ date_default_timezone_set('America/Los_Angeles');
                         $output .= "</div>";
                     }
                     elseif ($has_picture) {
+                        $img_url = "";
                         if ($type === 'photo') {
                             $img_url = $content_obj['source'];
+                            if (empty($img_url)) {
+                               $img_url = $post->picture;
+                            }
                         } 
-                        if (empty($img_url)) {
+                        else {
                             $img_url = $post->picture;
                         }
                         $output .= "<div class='post-media'><a href='".$post->link."' target='_blank'><img src='" . $img_url . "'></a></div>";
@@ -130,6 +134,7 @@ date_default_timezone_set('America/Los_Angeles');
                         try {
                             $event_obj = (new FacebookRequest($session, "GET", "/".$event_id[1]."/photos"))->execute()->getGraphObject()->asArray()['data'];                    
                             $last_photo = array_pop($event_obj)->images[0]->source;
+                            //$last_photo = $post->picture;
                         //$output .= "event".print_r($last_photo);
                         } catch(FacebookRequestException $e) {
                             // $output .= "Exception occured, code: " . $e->getCode();
@@ -151,7 +156,7 @@ date_default_timezone_set('America/Los_Angeles');
             } // end the foreach statement
             $string_data = serialize($posts_output);
             if (file_put_contents("fb_feed.txt", $string_data)) {
-                echo "successfully wrote facebook feed to file ".date("Y-m-d h:i:sa");
+                echo "successfully wrote facebook feed to file ".date("Y-m-d h:i:sa")."v2";
             } else {
                 echo "failed to write facebook feed to file";
             }
