@@ -32,7 +32,6 @@ include('_head.php')
              3/29/2015: <a href="https://www.facebook.com/events/699407943512707/" target="blank">Stork Club, Oakland, CA</a> &nbsp<a href="https://www.facebook.com/events/699407943512707/" target="blank"><img src="img/fb_white_29.png"></a>
             </p>
             <p class="show-listing">
-            <p class="show-listing">
              3/21/2015: <a href="https://www.facebook.com/events/1427922270840519/" target="blank">Horror Cave Beach Show,</a> &nbsp Sutro Baths, San Francisco, CA
             </p>
             <p class="show-listing">
