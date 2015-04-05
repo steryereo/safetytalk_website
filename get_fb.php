@@ -33,7 +33,7 @@ date_default_timezone_set('America/Los_Angeles');
         $request = new FacebookRequest(
           $session,
           'GET',
-          '/1508307422732791/posts'
+          '/1508307422732791/posts?limit=250'
         );
         $response = $request->execute();
         $graphObject = $response->getGraphObject();
@@ -64,7 +64,7 @@ date_default_timezone_set('America/Los_Angeles');
                 $has_soundcloud_source = strpos($source, "soundcloud") != FALSE;
                 $has_soundcloud_link = strpos($link, "soundcloud") != FALSE;
                 $has_fb_video = $type === 'video' && strpos($link, "facebook") != FALSE;
-                $has_event = $type === 'link' && strpos($link, "event") !== FALSE;
+                $has_event = $type === 'event' || ($type === 'link' && strpos($link, "event") !== FALSE);
               
                 
                 // check if post type is a status
@@ -76,14 +76,13 @@ date_default_timezone_set('America/Los_Angeles');
                         } catch(FacebookRequestException $e) {
                             // $output .= "Exception occured, code: " . $e->getCode();
                             // $output .= " with message: " . $e->getMessage();
-                        }   
-
-                        // $output .= "<p>";
-                        // $output .= print_r($content_obj['embed_html']);
-                        // $output .= "</p>";
+                        }
                      }
                     $output .= "<div class='contentsection clearfix' id='post-{$post->id}'>";
                     $output .= "<header class='post-header'>";
+                    if ($has_event && !empty($content_obj)) {
+                        $output .= "<h3 class='show-alert'>UPCOMING SHOW! ".date("F j, Y, g:i a", strtotime($content_obj['start_time']))."</h3>";
+                        }
                     if (!empty($post->name)) {
                         $output .= "<h3>".$post->name."</h3>";
                     }   
@@ -91,33 +90,57 @@ date_default_timezone_set('America/Los_Angeles');
                     $output .= "</header>";
                     if ($has_soundcloud_source){
                         preg_match("/url=(.*)&/", $source, $source_stripped);
-                        $output .= "<div class='post-media'><iframe width='100%' height='166' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=". $source_stripped[1]."' ></iframe></div>";
+                        $output .= "<!-- soundcloud source --><div class='post-media'><iframe width='100%' height='166' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=". $source_stripped[1]."' ></iframe></div>";
                     }
                     elseif ($has_soundcloud_link){
                         $encoded_url = urlencode($link);
                         $call_url = "https://api.soundcloud.com/resolve.json?url=".$encoded_url."&client_id=".$soundcloud_client_id;
                         $id = json_decode(file_get_contents($call_url))->id;
                         //echo $id;
-                        $output .= "<div class='post-media'><iframe width='100%' height='166' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/".$id."&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false'></iframe></div>";
+                        $output .= "<!-- soundcloud link --><div class='post-media'><iframe width='100%' height='166' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/".$id."&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false'></iframe></div>";
 
                         //$output .= "<div class='post-media'><iframe width='100%' height='166' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=". $source_stripped[1]."' ></iframe></div>";
                     }
                     elseif ($has_youtube){
                         parse_str( parse_url( $link, PHP_URL_QUERY ), $my_array_of_vars );
                         $youtube_id = $my_array_of_vars['v'];
-                        $output .= "<div class='post-media'><div class='video-wrapper'><iframe width='100%' src='http://www.youtube.com/embed/". $youtube_id. "' frameborder='0' ></iframe></div></div>";
+                        if (empty($youtube_id)) {
+                            preg_match("/be\/(\w*)/", $link, $my_array_of_vars);
+                            $youtube_id = $my_array_of_vars[1];
+                        }
+                        $output .= "<!-- youtube --><div class='post-media'><div class='video-wrapper'><iframe width='100%' src='http://www.youtube.com/embed/". $youtube_id. "' frameborder='0' ></iframe></div></div>";
                     }
                     elseif ($has_fb_video){
                         parse_str( parse_url( $link, PHP_URL_QUERY ), $my_array_of_vars );
                         $video_id = $my_array_of_vars['v'];    
-                        $output .= "<div class ='post-media'><div class='video-wrapper'><iframe width='100%' frameborder='0' style='overflow:hidden;' src='http://www.facebook.com/video/embed?video_id=".$video_id."' ></iframe></div>";
+                        $output .= "<!-- facebook video --><div class ='post-media'><div class='video-wrapper'><iframe width='100%' frameborder='0' style='overflow:hidden;' src='http://www.facebook.com/video/embed?video_id=".$video_id."' ></iframe></div>";
                         //$output .= "<div class='post-media'><div class='video-wrapper'>".$content_obj['embed_html']."</div></div>";
                         $output .= "<div><span class='caption'>click above to play video</span></div>";
                         $output .= "</div>";
                     }
+                    
+                    elseif ($has_event) {
+                        $output .= "<!-- event post -->";
+                        //preg_match("/\/events\/(.*)\//", $link, $event_id);
+                        $event_id = $post->object_id;
+                        //echo "<br>event_id=".$event_id;
+                        try {
+                            $event_obj = (new FacebookRequest($session, "GET", "/".$event_id."/photos"))->execute()->getGraphObject()->asArray()['data'];
+                            $last_photo = array_pop($event_obj)->images[0]->source;
+                            //echo "<br>event photos: ".print_r($last_photo);                    
+                            //$last_photo = $post->picture;
+                        //$output .= "event".print_r($last_photo);
+                        } catch(FacebookRequestException $e) {
+                            // $output .= "Exception occured, code: " . $e->getCode();
+                            // $output .= " with message: " . $e->getMessage();
+                            $last_photo = $post->picture;
+                        } 
+                        $output .= "<div class='post-media'><a href='".$post->link."' target='_blank'><img src='".$last_photo."'></a></div>";
+                    }
                     elseif ($has_picture) {
                         $img_url = "";
                         if ($type === 'photo') {
+                            $output .= "<!-- photo post -->";
                             $img_url = $content_obj['source'];
                             if (empty($img_url)) {
                                $img_url = $post->picture;
@@ -127,21 +150,6 @@ date_default_timezone_set('America/Los_Angeles');
                             $img_url = $post->picture;
                         }
                         $output .= "<div class='post-media'><a href='".$post->link."' target='_blank'><img src='" . $img_url . "'></a></div>";
-                    }
-                    elseif ($has_event) {
-                        preg_match("/\/events\/(.*)\//", $link, $event_id);
-                        //$output .= "event_id=".print_r($event_id);
-                        try {
-                            $event_obj = (new FacebookRequest($session, "GET", "/".$event_id[1]."/photos"))->execute()->getGraphObject()->asArray()['data'];                    
-                            $last_photo = array_pop($event_obj)->images[0]->source;
-                            //$last_photo = $post->picture;
-                        //$output .= "event".print_r($last_photo);
-                        } catch(FacebookRequestException $e) {
-                            // $output .= "Exception occured, code: " . $e->getCode();
-                            // $output .= " with message: " . $e->getMessage();
-                            $last_photo = $post->picture;
-                        } 
-                        $output .= "<div class='post-media'><a href='".$post->link."' target='_blank'><img src='".$last_photo."'></a></div>";
                     }
                     $output .= "<div class='post-content'>";
                     if ($has_message) {
@@ -156,7 +164,7 @@ date_default_timezone_set('America/Los_Angeles');
             } // end the foreach statement
             $string_data = serialize($posts_output);
             if (file_put_contents("fb_feed.txt", $string_data)) {
-                echo "successfully wrote facebook feed to file ".date("Y-m-d h:i:sa")."v2";
+                echo "successfully wrote facebook feed to file ".date("Y-m-d h:i:sa");
             } else {
                 echo "failed to write facebook feed to file";
             }

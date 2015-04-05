@@ -383,6 +383,10 @@ input#playstop:checked + label {
     margin:auto 1em;
     word-wrap:break-word;
 }
+.post-header h3.show-alert{
+    color:#31B0D1;
+    margin:auto;
+}
 .post-content p {
 
 background-color:#DDD;
