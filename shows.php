@@ -20,15 +20,16 @@ include('_head.php')
         ?>
         <section class='content'>
         <h2>Upcoming Shows</h2> 
-             <p class="show-listing">
-             4/4/2015: New Sun Company with Safety Talk + Dave Deporis + Jeremy Lyon at the <a href="http://www.awakencafe.com/" target="blank">Awaken Cafe</a> &nbsp<a href="https://www.facebook.com/events/1040234489323261/" target="blank"><img src="img/fb_white_29.png"></a>
-            </p>
+            
             <p class="show-listing">
             <a href="./booking">book us</a> for your next show.
             </p>
         <br><br>
         <h2>Past Shows</h2>
-         <p class="show-listing">
+            <p class="show-listing">
+                4/4/2015: New Sun Company with Safety Talk + Dave Deporis + Jeremy Lyon at the <a href="http://www.awakencafe.com/" target="blank">Awaken Cafe</a> &nbsp<a href="https://www.facebook.com/events/1040234489323261/" target="blank"><img src="img/fb_white_29.png"></a>
+            </p>
+            <p class="show-listing">
              3/29/2015: <a href="https://www.facebook.com/events/699407943512707/" target="blank">Stork Club, Oakland, CA</a> &nbsp<a href="https://www.facebook.com/events/699407943512707/" target="blank"><img src="img/fb_white_29.png"></a>
             </p>
             <p class="show-listing">
