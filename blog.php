@@ -44,7 +44,7 @@
         </section>
 <!-- <div class="fb-like-box" data-href="https://www.facebook.com/safetytalkinfinity" data-width="500" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="true"></div>
  -->
-<div id="loadmoreajaxloader" style="display:none;"><center><img src="img/loading.gif" /></center></div>
+<div id="loadmoreajaxloader" style="display:block" ><center><img src="img/more.png" /></center></div>
         </div>
     </div>
 
@@ -70,7 +70,7 @@
             if (!loading && !noMore) {
                     if(typeof(count)==='undefined') count=1;
                     loading = true;
-                    $('div#loadmoreajaxloader').show();
+                    $('div#loadmoreajaxloader img').attr('src','img/loading.gif');
                     //var numPosts = $('#posts .contentsection').length;
 
                     var lastID = $('#posts .contentsection').last().attr('id') || null;
@@ -85,7 +85,7 @@
                             else {
                                 noMore = true;
                             }
-                            $('div#loadmoreajaxloader').hide();
+                            $('div#loadmoreajaxloader img').attr('src','img/more.png');
                             loading = false;
                         }
                     });
@@ -94,7 +94,11 @@
         $(function(){
             getNextPost(2);
         });
-
+        $("#loadmoreajaxloader").click(function(){
+            if (!loading) {
+                getNextPost();
+            }
+        });
         $(window).scroll(function(){
            // $('#debug').html("window scrollTop=" + $(window).scrollTop() + "<br>document height - window height" + ($(document).height() - $(window).height()));
            if (!loading) {
