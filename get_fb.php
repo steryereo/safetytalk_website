@@ -81,7 +81,7 @@ date_default_timezone_set('America/Los_Angeles');
                     $output .= "<div class='contentsection clearfix' id='post-{$post->id}'>";
                     $output .= "<header class='post-header'>";
                     if ($has_event && !empty($content_obj)) {
-                        $output .= "<h3 class='show-alert'>UPCOMING SHOW! ".date("F j, Y, g:i a", strtotime($content_obj['start_time']))."</h3>";
+                        $output .= "<h3 class='show-alert'>UPCOMING SHOW! ".date("D n/j/Y, g:i a", strtotime($content_obj['start_time']))."</h3>";
                         }
                     if (!empty($post->name)) {
                         $output .= "<h3>".$post->name."</h3>";
