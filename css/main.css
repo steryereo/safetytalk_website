@@ -341,6 +341,12 @@ input#playstop:checked + label {
     max-width:600px;
     padding: 1em;
 }
+#book-us{
+    text-align: center;
+}
+.show-listing {
+    text-align: left;
+}
 .show-listing a {
     display: inline-block;
 }
