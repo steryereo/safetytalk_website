@@ -111,8 +111,8 @@ date_default_timezone_set('America/Los_Angeles');
                         $output .= "<!-- youtube --><div class='post-media'><div class='video-wrapper'><iframe width='100%' src='http://www.youtube.com/embed/". $youtube_id. "' frameborder='0' ></iframe></div></div>";
                     }
                     elseif ($has_fb_video){
-                        parse_str( parse_url( $link, PHP_URL_QUERY ), $my_array_of_vars );
-                        $video_id = $my_array_of_vars['v'];    
+                        // parse_str( parse_url( $link, PHP_URL_QUERY ), $my_array_of_vars );
+                        $video_id = $post->object_id;  
                         $output .= "<!-- facebook video --><div class ='post-media'><div class='video-wrapper'><iframe width='100%' frameborder='0' style='overflow:hidden;' src='http://www.facebook.com/video/embed?video_id=".$video_id."' ></iframe></div>";
                         //$output .= "<div class='post-media'><div class='video-wrapper'>".$content_obj['embed_html']."</div></div>";
                         $output .= "<div><span class='caption'>click above to play video</span></div>";

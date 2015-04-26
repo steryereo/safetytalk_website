@@ -402,41 +402,8 @@ background-color:#DDD;
     font-style: italic;
     color:#666;
 }
-
-
-@media only screen and (max-width: 62em) {
-    #h-menu {
-        /*position: relative;*/
-    }
-    #h-menu ul{
-        /*max-width: 41em;*/
-        /*text-align: left;*/
-    }
-    #h-menu li {
-        font-size: 1.7em;
-    margin: 0 1.25em 0 0;
-        /*display: inline-block;*/
-    }
-   /* #h-menu li#logo-item {
-        margin-top: -.5em;
-        float: left;
-    }*/
-
-/*    #nav-bg {
-        height: 6em;
-    }*/
-    #coverphoto img#animation {
-        //max-width:94%;
-        //border: 0;
-        //margin:3%;
-    }
-    #coverphoto {
-    width:100%;
-    //background-color:rgba(36,44,54,0.85);
-    }
-
      
-@media only screen and (max-width: 47em) {
+@media only screen and (max-width: 50em) {
     .top-spacer {
         margin: 0;
         //display: none;
@@ -446,7 +413,6 @@ background-color:#DDD;
 
         position: relative;
         display:block;
-        /*padding-top: .25em;*/
         font-size: 1.8em;
         z-index: 999;
         text-align: left;
