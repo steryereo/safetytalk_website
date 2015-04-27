@@ -1,4 +1,5 @@
 @import "compass/css3";
+@import "normalize";
 
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 
@@ -201,19 +202,19 @@ a {
     float:right;
     background-color:rgba(36,44,54,0.85);
     @include border-radius(5px);
-}
-#links img {
-    opacity: 0.8;  
-    width:100%;
-}
-#links img:hover {
-    opacity: 1;
-    @include transition(opacity 500ms);
-}
-#links a {
-    width:3em;
-    display: inline-block;
-    margin:0.5em;
+    img {
+        opacity: 0.8;  
+        width:100%;
+    }
+    img:hover {
+        opacity: 1;
+        @include transition(opacity 500ms);
+    }
+    a {
+        width:3em;
+        display: inline-block;
+        margin:0.5em;
+    }
 }
 .content, .content-header{
     max-width: 800px;
