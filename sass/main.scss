@@ -1,5 +1,5 @@
 @import "compass/css3";
-@import "normalize";
+//@import "normalize";
 
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 
@@ -257,6 +257,7 @@ a {
     display:inline-block;
     width:auto;
     margin-left: 1em;
+    line-height: 1.5;
 }
 .header-subtitle span {
     display:block;
