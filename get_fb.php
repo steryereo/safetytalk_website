@@ -83,7 +83,10 @@ date_default_timezone_set('America/Los_Angeles');
                     if ($has_event && !empty($content_obj)) {
                         $output .= "<h3 class='show-alert'>UPCOMING SHOW! ".date("D n/j/Y, g:i a", strtotime($content_obj['start_time']))."</h3>";
                         }
-                    if (!empty($post->name)) {
+                    if (!empty($post->story) && strpos($post->story,"shared") != FALSE && !$has_event ) {
+                        // $output .= "<h3>".$post->story."</h3>";
+                    }
+                    elseif (!empty($post->name)) {
                         $output .= "<h3>".$post->name."</h3>";
                     }   
                     $output .= "<span class='post-date'>".date("M jS, Y", (strtotime($post->created_time)))."</span>";
