@@ -21,9 +21,6 @@ include('_head.php')
         <section class='content'>
         <h2>Upcoming Shows</h2> 
              <p class="show-listing">
-                4/24/2015: Bashing of the Golden Burro at the Abandoned Lot - ask someone who knows
-            </p>
-             <p class="show-listing">
                 5/5/2015: Cinco de Mayo Psychedelic Fiesta At <a href="http://www.hotelutah.com/" target="blank">Hotel Utah</a> &nbsp<a href="https://www.facebook.com/events/903455486379926/" target="blank"><img src="img/fb_white_29.png"></a>
             </p>
             <p class="show-listing" id="book-us">
