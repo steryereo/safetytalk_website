@@ -7,23 +7,19 @@
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 <url>
-  <loc>http://www.safetytalkband.com/</loc>
+  <loc>http://safetytalkband.com/</loc>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://www.safetytalkband.com/music</loc>
+  <loc>http://safetytalkband.com/music</loc>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.safetytalkband.com/photos</loc>
+  <loc>http://safetytalkband.com/booking</loc>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.safetytalkband.com/booking</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://www.safetytalkband.com/shows</loc>
+  <loc>http://safetytalkband.com/shows</loc>
   <priority>0.80</priority>
 </url>
 </urlset>
