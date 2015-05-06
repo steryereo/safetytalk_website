@@ -21,7 +21,7 @@ include('_head.php')
         <section class='content'>
         <h2>Upcoming Shows</h2> 
         <p class="show-listing">
-                5/30/2015: Hard Rock Bathroom Presents: "The Backyard Ball", Prunedale, CA <a href="https://www.facebook.com/events/1594631834109152/" target="blank"><img src="img/fb_white_29.png"></a>
+            5/30/2015: <a href="https://www.facebook.com/events/1594631834109152/" target="blank">Hard Rock Bathroom Presents: "The Backyard Ball"</a>, Prunedale, CA <a href="https://www.facebook.com/events/1594631834109152/" target="blank"><img src="img/fb_white_29.png"></a>
             </p>
             <p class="show-listing" id="book-us">
                 <a href="./booking">book us</a> for your next show.
