@@ -20,14 +20,17 @@ include('_head.php')
         ?>
         <section class='content'>
         <h2>Upcoming Shows</h2> 
-             <p class="show-listing">
-                5/5/2015: Cinco de Mayo Psychedelic Fiesta At <a href="http://www.hotelutah.com/" target="blank">Hotel Utah</a> &nbsp<a href="https://www.facebook.com/events/903455486379926/" target="blank"><img src="img/fb_white_29.png"></a>
+        <p class="show-listing">
+                5/30/2015: Hard Rock Bathroom Presents: "The Backyard Ball" <a href="https://www.facebook.com/events/1594631834109152/" target="blank"><img src="img/fb_white_29.png"></a>
             </p>
             <p class="show-listing" id="book-us">
                 <a href="./booking">book us</a> for your next show.
             </p>
         <br><br>
         <h2>Past Shows</h2>
+             <p class="show-listing">
+                5/5/2015: Cinco de Mayo Psychedelic Fiesta At <a href="http://www.hotelutah.com/" target="blank">Hotel Utah</a> &nbsp<a href="https://www.facebook.com/events/903455486379926/" target="blank"><img src="img/fb_white_29.png"></a>
+            </p>
             <p class="show-listing">
                 4/4/2015: New Sun Company with Safety Talk + Dave Deporis + Jeremy Lyon at the <a href="http://www.awakencafe.com/" target="blank">Awaken Cafe</a> &nbsp<a href="https://www.facebook.com/events/1040234489323261/" target="blank"><img src="img/fb_white_29.png"></a>
             </p>
