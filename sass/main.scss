@@ -334,7 +334,7 @@ a {
     margin:auto;
 }
 
-.post-content p {
+.content p {
     padding:1em;
     @include border-radius(5px);
     background-color:#DDD;
@@ -345,6 +345,11 @@ a {
     color:#666;
 }
      
+     #loadmoreajaxloader {
+        display:block;
+        clear:both;
+        padding:2em;
+     }
 @media only screen and (max-width: 50em) {
     .top-spacer {
         margin: 0;

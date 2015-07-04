@@ -44,7 +44,7 @@
         </section>
 <!-- <div class="fb-like-box" data-href="https://www.facebook.com/safetytalkinfinity" data-width="500" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="true"></div>
  -->
-<div id="loadmoreajaxloader" style="display:block;clear:both;" ><center><img src="img/more.png" /></center></div>
+<div id="loadmoreajaxloader"><center><img src="img/more.png" /></center></div>
         </div>
     </div>
 
@@ -103,14 +103,14 @@
             }
         });
         
-        $(window).scroll(function(){
-           // $('#debug').html("window scrollTop=" + $(window).scrollTop() + "<br>document height - window height" + ($(document).height() - $(window).height()));
-           if (!loading) {
-            if($(window).scrollTop() >= $(document).height() - $(window).height()){
-                    getNextPost(2);
-                }
-            }
-        });
+        // $(window).scroll(function(){
+        //    // $('#debug').html("window scrollTop=" + $(window).scrollTop() + "<br>document height - window height" + ($(document).height() - $(window).height()));
+        //    if (!loading) {
+        //     if($(window).scrollTop() >= $(document).height() - $(window).height()){
+        //             getNextPost(2);
+        //         }
+        //     }
+        // });
     </script>
 
 </html>
