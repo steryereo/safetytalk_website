@@ -21,13 +21,13 @@
             include ('_contentheader.php');
         //echo print_r($graphObject->getPropertyNames());
         ?>
-        <div class="content">
+        <div class="content clearfix">
         <!-- <div class="contentsection"> -->
 
           
-            <section id='posts'>
+            <section id='posts' >
                 <h2>What's Happening Now</h2>
-        <?php
+               <?php
 
             // $i = 0;
             // $posts = file_get_contents("fb_feed.txt");
@@ -44,7 +44,7 @@
         </section>
 <!-- <div class="fb-like-box" data-href="https://www.facebook.com/safetytalkinfinity" data-width="500" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="true"></div>
  -->
-<div id="loadmoreajaxloader" style="display:block" ><center><img src="img/more.png" /></center></div>
+<div id="loadmoreajaxloader" style="display:block;clear:both;" ><center><img src="img/more.png" /></center></div>
         </div>
     </div>
 
@@ -63,8 +63,11 @@
     </body>
 
     <script type="text/javascript">
+
+        
         var loading = false;
         var noMore = false;
+
 
         function getNextPost(count) {
             if (!loading && !noMore) {
@@ -96,14 +99,15 @@
         });
         $("#loadmoreajaxloader").click(function(){
             if (!loading) {
-                getNextPost();
+                getNextPost(2);
             }
         });
+        
         $(window).scroll(function(){
            // $('#debug').html("window scrollTop=" + $(window).scrollTop() + "<br>document height - window height" + ($(document).height() - $(window).height()));
            if (!loading) {
             if($(window).scrollTop() >= $(document).height() - $(window).height()){
-                    getNextPost();
+                    getNextPost(2);
                 }
             }
         });
