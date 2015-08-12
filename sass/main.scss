@@ -233,20 +233,21 @@ a {
     padding :1em;
     background-color:#C8C8C8;
     margin:.5em;
-    @include border-radius(5px);
+    @include border-radius(3px);
     @include box-sizing(border-box);
-    float:right;
-    clear: right;
+    //float:right;
+    //clear: right;
     display: inline-block;
-        width:48%;
+    width:100%;
+    margin: 0.5em auto;
 
     
 }
-.contentsection:nth-child(2n+2) {
-    float:left;
-    clear:left;
+// .contentsection:nth-child(2n+2) {
+//     float:left;
+//     clear:left;
     
-}
+// }
 
 .header-titles {
     text-align: right;
@@ -299,7 +300,6 @@ a {
 }
 .post-media, .post-content {
     max-width: 480px;
-    margin:auto;
     position: relative;
     margin: 1em auto;
 }
@@ -345,18 +345,21 @@ a {
     color:#666;
 }
      
-     #loadmoreajaxloader center {
-        display:block;
-        clear:both;
-        padding:2em;
-        height:41px;
-        width:50px;
-        margin:auto;
-        @include background(url('../img/more.png') center no-repeat);
-        &:hover {
-            background-image:url('../img/more_green.png')
-        }
-     }
+#loadmoreajaxloader center {
+    display:block;
+    clear:both;
+    padding:2em;
+    height:41px;
+    width:50px;
+    margin:auto;
+    @include background(url('../img/more.png') center no-repeat);
+    &:hover {
+       background-image:url('../img/more_green.png')
+    }
+}
+
+
+
 @media only screen and (max-width: 50em) {
     .top-spacer {
         margin: 0;

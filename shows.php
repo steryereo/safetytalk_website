@@ -15,11 +15,14 @@ include('_head.php')
     <!-- BEGIN CONTENT -->
     <div id='row1'>
     <?php
-            include ('_contentheader.php');
+        include ('_contentheader.php');
         //echo print_r($graphObject->getPropertyNames());
         ?>
         <section class='content'>
         <h2>Upcoming Shows</h2> 
+        <p class="show-listing">
+            8/15/2015: <a href="http://runoak.com/" target="blank">The Town's Half Marathon</a> playing at the Lake Merritt Gazebo in Oakland, CA, 8:00-10:00am
+        </p>
         <p class="show-listing">
             8/23/2015: <a href="http://www.storkcluboakland.com/" target="blank">Stork Club, Oakland, CA</a> &nbsp with <a href="https://www.facebook.com/events/699407943512707/" target="blank">Jesse R Berlin</a>
         </p>
