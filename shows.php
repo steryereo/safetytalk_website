@@ -22,16 +22,19 @@ include('_head.php')
         <h2>Upcoming Shows</h2> 
         
         <p class="show-listing">
-            8/23/2015: <a href="http://www.storkcluboakland.com/" target="blank">Stork Club, Oakland, CA</a> &nbsp with <a href="https://www.facebook.com/JesseRBerlin" target="blank">Jesse R Berlin</a>
+            8/30/2015: <a href="https://www.facebook.com/events/841081185977259/" target="blank">Freak Folk & More </a>&nbsp at<a href="https://www.facebook.com/pages/Trees/258681097485179" target="blank">&nbsp TREES,</a> Oakland, CA &nbsp<a href="https://www.facebook.com/events/41081185977259/" target="blank"><img src="img/fb_white_29.png"></a>
         </p>
          <p class="show-listing">
-             9/25/2015: <a href="https://www.facebook.com/events/1404972913166751/" target="blank">50 Mason Socail House</a>, San Francisco &nbsp<a href="https://www.facebook.com/events/1404972913166751/" target="blank"><img src="img/fb_white_29.png"></a><span style="color:red">  Cancelled due to venue closure</span>
+             9/22/2015: <a href="https://www.facebook.com/events/512350942252466/" target="blank">THEE INDIAN SUMMER FESTIVAL</a>, Oakland, CA &nbsp<a href="https://www.facebook.com/events/512350942252466/" target="blank"><img src="img/fb_white_29.png"></a>
             </p>
             <p class="show-listing" id="book-us">
                 <a href="./booking">book us</a> for your next show.
             </p>
             <br><br>
             <h2>Past Shows</h2>
+             <p class="show-listing">
+                8/23/2015: <a href="http://www.storkcluboakland.com/" target="blank">Stork Club, Oakland, CA</a> &nbsp with <a href="https://www.facebook.com/JesseRBerlin" target="blank">Jesse R Berlin</a>
+            </p>
             <p class="show-listing">
                 8/15/2015: <a href="http://runoak.com/" target="blank">The Town's Half Marathon</a> playing at the Lake Merritt Gazebo in Oakland, CA, 8:00-10:00am
             </p>
