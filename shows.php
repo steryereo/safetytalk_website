@@ -25,10 +25,13 @@ include('_head.php')
                 8/30/2015: <a href="https://www.facebook.com/events/841081185977259/" target="blank">Freak Folk & More </a>&nbsp at<a href="https://www.facebook.com/pages/Trees/258681097485179" target="blank">&nbsp TREES,</a> Oakland, CA &nbsp<a href="https://www.facebook.com/events/41081185977259/" target="blank"><img src="img/fb_white_29.png"></a>
             </p>
             <p class="show-listing">
+                9/13/2015: <a href="http://clubleos.com" target="blank">Leo's Music Club</a>&nbsp in Oakland, CA <a href="https://www.facebook.com/events/1629068504043314/" target="blank"><img src="img/fb_white_29.png"></a>
+            </p>
+            <p class="show-listing">
                 9/22/2015: <a href="https://www.facebook.com/events/512350942252466/" target="blank">THEE INDIAN SUMMER FESTIVAL</a>, Oakland, CA &nbsp<a href="https://www.facebook.com/events/512350942252466/" target="blank"><img src="img/fb_white_29.png"></a>
             </p>
             <p class="show-listing">
-                9/8/2015: <a href="http://www.milksf.com/" target="blank">Milk Bar</a>&nbsp in San Francisco <a href="https://www.facebook.com/events/798166790297250/" target="blank"><img src="img/fb_white_29.png"></a>
+                10/8/2015: <a href="http://www.milksf.com/" target="blank">Milk Bar</a>&nbsp in San Francisco <a href="https://www.facebook.com/events/798166790297250/" target="blank"><img src="img/fb_white_29.png"></a>
             </p>
             <p class="show-listing" id="book-us">
                 <a href="./booking">book us</a> for your next show.
