@@ -20,10 +20,7 @@ include('_head.php')
         ?>
         <section class='content'>
             <h2>Upcoming Shows</h2> 
-            
-            <p class="show-listing">
-                8/30/2015: <a href="https://www.facebook.com/events/841081185977259/" target="blank">Freak Folk & More </a>&nbsp at<a href="https://www.facebook.com/pages/Trees/258681097485179" target="blank">&nbsp TREES,</a> Oakland, CA &nbsp<a href="https://www.facebook.com/events/41081185977259/" target="blank"><img src="img/fb_white_29.png"></a>
-            </p>
+
             <p class="show-listing">
                 9/13/2015: <a href="http://clubleos.com" target="blank">Leo's Music Club</a>&nbsp in Oakland, CA <a href="https://www.facebook.com/events/1629068504043314/" target="blank"><img src="img/fb_white_29.png"></a>
             </p>
@@ -38,7 +35,10 @@ include('_head.php')
             </p>
             <br><br>
             <h2>Past Shows</h2>
-             <p class="show-listing">
+            <p class="show-listing">
+                8/30/2015: <a href="https://www.facebook.com/events/841081185977259/" target="blank">Freak Folk & More </a>&nbsp at<a href="https://www.facebook.com/pages/Trees/258681097485179" target="blank">&nbsp TREES,</a> Oakland, CA &nbsp<a href="https://www.facebook.com/events/41081185977259/" target="blank"><img src="img/fb_white_29.png"></a>
+            </p>
+            <p class="show-listing">
                 8/23/2015: <a href="http://www.storkcluboakland.com/" target="blank">Stork Club, Oakland, CA</a> &nbsp with <a href="https://www.facebook.com/JesseRBerlin" target="blank">Jesse R Berlin</a>
             </p>
             <p class="show-listing">
