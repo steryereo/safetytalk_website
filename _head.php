@@ -15,5 +15,19 @@
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.min.css">
         <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+            <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "MusicGroup",
+        "name": "Safety Talk",
+        "sameAs": "http://safetytalkband.com",
+        "foundingLocation": {
+            "@type": "City",
+            "name": "Oakland"
+        },
+        "foundingDate": "2014",
+        "genre": "Psychedelic Country Surf",
+    }
+    </script>
         
     </head>
