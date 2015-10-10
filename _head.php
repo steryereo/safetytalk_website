@@ -26,7 +26,7 @@
             "name": "Oakland"
         },
         "foundingDate": "2014",
-        "genre": "Psychedelic Country Surf",
+        "genre": "Psychedelic Country Surf"
     }
     </script>
         
