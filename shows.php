@@ -20,6 +20,30 @@ include('_head.php')
         ?>
         <section class='content'>
             <h2>Upcoming Shows</h2> 
+           
+
+            <p class="show-listing" id="book-us">
+                <a href="./booking">book us</a> for your next show.
+            </p>
+            <br><br>
+            <h2>Past Shows</h2>
+             <p class="show-listing">
+                11/22/2015: <a href="https://www.facebook.com/events/987419364650991/" target="blank">Beach Party</a>&nbsp at Panther Beach <a href="https://www.facebook.com/events/987419364650991/" target="blank"><img src="img/fb_white_29.png"></a>
+            </p>
+            <script type="application/ld+json">
+            {
+              "@context": "http://schema.org",
+              "@type": "MusicEvent",
+              "name": "Panther Beach Generator Jam",
+              "startDate" : "2015-11-22T14:00",
+              "url" : "https://www.facebook.com/events/987419364650991/",
+              "location" : {
+                "@type" : "MusicVenue",
+                "name" : "Panther Beach",
+                "address" : "California 1, Seaside, CA 95060"
+              }
+            }
+            </script>
             <p class="show-listing">
                 10/8/2015: <a href="http://www.milksf.com/" target="blank">Milk Bar</a>&nbsp in San Francisco <a href="https://www.facebook.com/events/798166790297250/" target="blank"><img src="img/fb_white_29.png"></a>
             </p>
@@ -38,12 +62,6 @@ include('_head.php')
               }
             }
             </script>
-
-            <p class="show-listing" id="book-us">
-                <a href="./booking">book us</a> for your next show.
-            </p>
-            <br><br>
-            <h2>Past Shows</h2>
             <p class="show-listing">
                 9/22/2015: <a href="https://www.facebook.com/events/512350942252466/" target="blank">THEE INDIAN SUMMER FESTIVAL</a>, Oakland, CA &nbsp<a href="https://www.facebook.com/events/512350942252466/" target="blank"><img src="img/fb_white_29.png"></a>
             </p>
