@@ -1,4 +1,4 @@
- <?
+ <?php
 date_default_timezone_set('America/Los_Angeles');
 
     session_start();
@@ -38,18 +38,16 @@ date_default_timezone_set('America/Los_Angeles');
         $response = $request->execute();
         $graphObject = $response->getGraphObject();
     }
-    
+
     ?>
 
         <?php
             $posts_output = array();
             // $output .= "<div class=\"fb-feed\">";
-            
+
             // set counter to 0, because we only want to display 10 posts
             $i = 0;
             $posts = $graphObject->asArray();
-            
-
 
             foreach($posts['data'] as $post) {
                 $output = "";
@@ -58,15 +56,14 @@ date_default_timezone_set('America/Los_Angeles');
                 $link = $post->link;
                 $source = $post->source;
 
-                $has_message = !empty($post->message); 
+                $has_message = !empty($post->message);
                 $has_picture = !empty($post->picture);
                 $has_youtube = strpos($link, "youtube") != FALSE || strpos($link, "youtu.be") != FALSE;
                 $has_soundcloud_source = strpos($source, "soundcloud") != FALSE;
                 $has_soundcloud_link = strpos($link, "soundcloud") != FALSE;
                 $has_fb_video = $type === 'video' && strpos($link, "facebook") != FALSE;
                 $has_event = $type === 'event' || ($type === 'link' && strpos($link, "event") !== FALSE);
-              
-                
+
                 // check if post type is a status
                 if ($has_message || $has_soundcloud || $has_youtube || $has_picture || $has_fb_video)  {
                     $content_obj=null;
@@ -88,7 +85,7 @@ date_default_timezone_set('America/Los_Angeles');
                     }
                     elseif (!empty($post->name)) {
                         $output .= "<h3>".$post->name."</h3>";
-                    }   
+                    }
                     $output .= "<span class='post-date'>".date("M jS, Y", (strtotime($post->created_time)))."</span>";
                     $output .= "</header>";
                     if ($has_soundcloud_source){
@@ -121,7 +118,7 @@ date_default_timezone_set('America/Los_Angeles');
                         $output .= "<div><span class='caption'>click above to play video</span></div>";
                         $output .= "</div>";
                     }
-                    
+
                     elseif ($has_event) {
                         $output .= "<!-- event post -->";
                         //preg_match("/\/events\/(.*)\//", $link, $event_id);
@@ -130,14 +127,14 @@ date_default_timezone_set('America/Los_Angeles');
                         try {
                             $event_obj = (new FacebookRequest($session, "GET", "/".$event_id."/photos"))->execute()->getGraphObject()->asArray()['data'];
                             $last_photo = array_pop($event_obj)->images[0]->source;
-                            //echo "<br>event photos: ".print_r($last_photo);                    
+                            //echo "<br>event photos: ".print_r($last_photo);
                             //$last_photo = $post->picture;
                         //$output .= "event".print_r($last_photo);
                         } catch(FacebookRequestException $e) {
                             // $output .= "Exception occured, code: " . $e->getCode();
                             // $output .= " with message: " . $e->getMessage();
                             $last_photo = $post->picture;
-                        } 
+                        }
                         $output .= "<div class='post-media'><a href='".$post->link."' target='_blank'><img src='".$last_photo."'></a></div>";
                     }
                     elseif ($has_picture) {
@@ -148,7 +145,7 @@ date_default_timezone_set('America/Los_Angeles');
                             if (empty($img_url)) {
                                $img_url = $post->picture;
                             }
-                        } 
+                        }
                         else {
                             $img_url = $post->picture;
                         }
@@ -159,7 +156,7 @@ date_default_timezone_set('America/Los_Angeles');
                         $output .= "<p>" . $post->message . "</p>";
                         //$output .= "<p><a href=\"" . $post->link . "\" target=\"_blank\">" . $post->link . "</a></p>";
                     }
-                    
+
                     $output .= "</div></div>\n"; //contentsection
 
                 $posts_output[] = array('id'=>$post->id, 'html'=>$output);
