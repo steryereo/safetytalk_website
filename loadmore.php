@@ -17,7 +17,7 @@ if ($posts) {
 			}
 			++$i;
 		}
-		//echo $posts[$last_id];   	
+		//echo $posts[$last_id];
 	}
 	for ($x = 0; $x < $c; ++$x) {
 		if (!empty($posts[$starting_index+$x])){

@@ -1,4 +1,4 @@
-<?
+<?php
 function parse_path() {
   $path = array();
   if (isset($_SERVER['REQUEST_URI'])) {
