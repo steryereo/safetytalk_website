@@ -73,7 +73,9 @@
             }
         });
         window.addEventListener('scroll', function(){
-          if (!loading) {
+            var now = Date.now();
+          if (!loading && ((now - scrollDebounce) > 50)) {
+            scrollDebounce = now;
             if(window.pageYOffset >= (document.body.clientHeight - window.outerHeight - 10)) {
                     getNextPost(3);
                 }
