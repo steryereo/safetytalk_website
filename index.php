@@ -13,46 +13,23 @@
 
         <?php
             include ('_nav.php');
-        //echo print_r($graphObject->getPropertyNames());
         ?>
         <div id='row1'>
-        <!-- <div id='debug' style="position:fixed; right:10px;"></div> -->
          <?php
             include ('_contentheader.php');
-        //echo print_r($graphObject->getPropertyNames());
         ?>
         <div class="content clearfix">
-        <!-- <div class="contentsection"> -->
 
             <section id='posts' >
                 <h2>What's Happening Now</h2>
-               <?php
 
-            // $i = 0;
-            // $posts = file_get_contents("fb_feed.txt");
-            // if ($posts) {
-            //     $posts = unserialize($posts);
-            //     for ($i=0; $i<2; ++$i) {
-            //         echo $posts[$i]['html'];
-            //     }
-            // } else {
-            //     echo "something went wrong";
-            // }
-        ?>
         </section>
-<!-- <div class="fb-like-box" data-href="https://www.facebook.com/safetytalkinfinity" data-width="500" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="true"></div>
- -->
-<div id="loadmoreajaxloader"><center><!-- <img src="img/more.png" /> --></center></div>
+        <div id="loadmoreajaxloader"><div class="center"></div></div>
         </div>
     </div>
         <?php
             include ('_footer_scripts.php');
         ?>
-        <script type="text/javascript">
-            // $(document).on('click', '.playbutton', function() {
-            //     $(this).siblings('.playbutton').hide();
-            // });
-        </script>
     </body>
 
     <script type="text/javascript">
@@ -64,7 +41,7 @@
             if (!loading && !noMore) {
                     if(typeof(count)==='undefined') count=1;
                     loading = true;
-                    $('div#loadmoreajaxloader img').attr('src','img/loading.gif');
+                    $('div#loadmoreajaxloader .center').addClass('loading');
                     //var numPosts = $('#posts .contentsection').length;
 
                     var lastID = $('#posts .contentsection').last().attr('id') || null;
@@ -79,25 +56,25 @@
                             else {
                                 noMore = true;
                             }
-                            $('div#loadmoreajaxloader img').attr('src','img/more.png');
+                            $('div#loadmoreajaxloader .center').removeClass('loading');
                             loading = false;
                         }
                     });
                 }
         }
-        $(function(){
-            getNextPost(5);
-        });
-        $("#loadmoreajaxloader").click(function(){
+        window.onload = function(){
+            getNextPost(1);
+        };
+        document.querySelector('#loadmoreajaxloader').addEventListener('click', function(){
             if (!loading) {
                 getNextPost(3);
             }
         });
-        $(window).scroll(function(){
-           // $('#debug').html("window scrollTop=" + $(window).scrollTop() + "<br>document height - window height" + ($(document).height() - $(window).height()));
+        window.addEventListener('scroll', function(){
            if (!loading) {
-            if($(window).scrollTop() >= $(document).height() - $(window).height()){
-                    getNextPost(2);
+            console.log('window.pageYOffset: ' + window.pageYOffset +  ' document.body.clientHeight - window.outerHeight: ' + (document.body.clientHeight - window.outerHeight));
+            if(window.pageYOffset >= (document.body.clientHeight - window.outerHeight)) {
+                    getNextPost(3);
                 }
             }
         });
