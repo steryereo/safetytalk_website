@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
     include($_SERVER['DOCUMENT_ROOT'].'/_head.php');
-    include('/_head.php');
 ?>
 <body>
     <!--[if lt IE 7]>

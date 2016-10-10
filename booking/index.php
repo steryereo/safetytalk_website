@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include('_head.php')
+    include($_SERVER['DOCUMENT_ROOT'].'/_head.php')
 ?>
 <body>
     <!--[if lt IE 7]>
@@ -8,28 +8,28 @@ include('_head.php')
     <![endif]-->
     <!-- Add your site or application content here -->
     <!-- <div id='menu-bg' ></div> -->
-    
+
     <?php
-    include('_nav.php')
+    include($_SERVER['DOCUMENT_ROOT'].'/_nav.php')
     ?>
     <!-- BEGIN CONTENT -->
     <div id='row1'>
     <?php
-            include ('_contentheader.php');
+            include ($_SERVER['DOCUMENT_ROOT'].'_contentheader.php');
         //echo print_r($graphObject->getPropertyNames());
         ?>
         <section class='content'>
-            
+
             <!-- start slipsum code -->
             <p>We want to play at your venue/space/cave/bunker/van!<br>
             The San Francisco Bay Area is best &mdash; we live in Oakland. <br>
             <a href="mailto:safetytalkband@gmail.com" target="blank">holler at us</a></p>
-               
+
             </section>
         </div>
         <!-- END CONTENT -->
-        <?
-            include('_footer_scripts.php');
+        <?php
+            include($_SERVER['DOCUMENT_ROOT'].'/_footer_scripts.php');
         ?>
     </body>
 </html>
