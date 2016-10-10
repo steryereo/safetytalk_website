@@ -1,53 +1,107 @@
-<?php
-function parse_path() {
-  $path = array();
-  if (isset($_SERVER['REQUEST_URI'])) {
-    $request_path = explode('?', $_SERVER['REQUEST_URI']);
+<!DOCTYPE html>
+    <?php
+        include ('_head.php')
+    ?>
+    <div id='preload' style = "background: url('img/loading.gif') no-repeat -9999px -9999px;"> </div>
+    <body>
+        <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <!-- Add your site or application content here -->
+        <!-- <div id='menu-bg' ></div> -->
 
-    $path['base'] = rtrim(dirname($_SERVER['SCRIPT_NAME']), '\/');
-    $path['call_utf8'] = substr(urldecode($request_path[0]), strlen($path['base']) + 1);
-    $path['call'] = utf8_decode($path['call_utf8']);
-    if ($path['call'] == basename($_SERVER['PHP_SELF'])) {
-      $path['call'] = '';
-    }
-    $path['call_parts'] = explode('/', $path['call']);
 
-    $path['query_utf8'] = urldecode($request_path[1]);
-    $path['query'] = utf8_decode(urldecode($request_path[1]));
-    $vars = explode('&', $path['query']);
-    foreach ($vars as $var) {
-      $t = explode('=', $var);
-      $path['query_vars'][$t[0]] = $t[1];
-    }
-  }
-return $path;
-}
+        <?php
+            include ('_nav.php');
+        //echo print_r($graphObject->getPropertyNames());
+        ?>
+        <div id='row1'>
+        <!-- <div id='debug' style="position:fixed; right:10px;"></div> -->
+         <?php
+            include ('_contentheader.php');
+        //echo print_r($graphObject->getPropertyNames());
+        ?>
+        <div class="content clearfix">
+        <!-- <div class="contentsection"> -->
 
-$path_info = parse_path();
+            <section id='posts' >
+                <h2>What's Happening Now</h2>
+               <?php
 
-if ($path_info['call'] == "loadmore.php") {
-  include('loadmore.php');
-}
-if ($path_info['call'] == "get_fb.php") {
-  include('get_fb.php');
-}
-//echo '<pre>'.print_r($path_info, true).'</pre>';
-$callhtml = $path_info['call'] . ".html";
-$callphp = $path_info['call'] . ".php";
+            // $i = 0;
+            // $posts = file_get_contents("fb_feed.txt");
+            // if ($posts) {
+            //     $posts = unserialize($posts);
+            //     for ($i=0; $i<2; ++$i) {
+            //         echo $posts[$i]['html'];
+            //     }
+            // } else {
+            //     echo "something went wrong";
+            // }
+        ?>
+        </section>
+<!-- <div class="fb-like-box" data-href="https://www.facebook.com/safetytalkinfinity" data-width="500" data-height="600" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="true"></div>
+ -->
+<div id="loadmoreajaxloader"><center><!-- <img src="img/more.png" /> --></center></div>
+        </div>
+    </div>
+        <?php
+            include ('_footer_scripts.php');
+        ?>
+        <script type="text/javascript">
+            // $(document).on('click', '.playbutton', function() {
+            //     $(this).siblings('.playbutton').hide();
+            // });
+        </script>
+    </body>
 
-if (empty($path_info['call'])) {
-  include ('blog.php');
-}
-elseif (file_exists($callphp)) {
-  include($callphp);
-}
-elseif (file_exists($callhtml)) {
-  include($callhtml);
-}
-else {
+    <script type="text/javascript">
+        var loading = false;
+        var noMore = false;
 
-  //echo '<pre>'.print_r($path_info, true).'</pre>';
-  header( 'Location: http://safetytalkband.com' ) ;
-  die();
-}
-?>
+
+        function getNextPost(count) {
+            if (!loading && !noMore) {
+                    if(typeof(count)==='undefined') count=1;
+                    loading = true;
+                    $('div#loadmoreajaxloader img').attr('src','img/loading.gif');
+                    //var numPosts = $('#posts .contentsection').length;
+
+                    var lastID = $('#posts .contentsection').last().attr('id') || null;
+                    var postID = lastID ? lastID.replace("post-", "") : null;
+                    $.ajax({
+                        url: "loadmore.php",
+                        data: {n:postID, c:count},
+                        success: function(html){
+                            if(html){
+                                $("#posts").append(html);
+                            }
+                            else {
+                                noMore = true;
+                            }
+                            $('div#loadmoreajaxloader img').attr('src','img/more.png');
+                            loading = false;
+                        }
+                    });
+                }
+        }
+        $(function(){
+            getNextPost(5);
+        });
+        $("#loadmoreajaxloader").click(function(){
+            if (!loading) {
+                getNextPost(3);
+            }
+        });
+        $(window).scroll(function(){
+           // $('#debug').html("window scrollTop=" + $(window).scrollTop() + "<br>document height - window height" + ($(document).height() - $(window).height()));
+           if (!loading) {
+            if($(window).scrollTop() >= $(document).height() - $(window).height()){
+                    getNextPost(2);
+                }
+            }
+        });
+    </script>
+</html>
+
+
