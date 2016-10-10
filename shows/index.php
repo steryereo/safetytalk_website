@@ -20,7 +20,6 @@
         ?>
         <section class='content'>
             <h2>Upcoming Shows</h2> 
-           
 
             <p class="show-listing" id="book-us">
                 <a href="./booking">book us</a> for your next show.

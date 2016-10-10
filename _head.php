@@ -3,7 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Safety Talk</title>
     <meta name="description" content="Psychedelic Country Surf from Oakland, California">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <meta name="google-site-verification" content="Om74dDcUN12MV4apaT0SdiEpYUygqdSAHupSvE9ZMB8" />
 
      <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->

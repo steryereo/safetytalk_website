@@ -2,7 +2,8 @@
     <nav id='h-menu' >
     	<div id = "nav-bg"></div>
             <li id ='mobile-title'><a href="/"><img src="/img/logo_32.png" alt="Safety Talk. Psychedelic Country Surf from Oakland, California." />Safety Talk</a>
-            <label for="menutoggle" id="menu-icon">&#9776;</label></li>
+            <label for="menutoggle" id="menu-icon"><i class="fa fa-bars" aria-hidden="true"></i>
+</label></li>
             <input type="checkbox" name="menutoggle" id="menutoggle" />
             <ul id="nav-list">
                 <li><a id="-link" href='/'><img src="/img/logo_32.png" alt="Safety Talk. Psychedelic Country Surf from Oakland, California." />Safety Talk</a></li>
