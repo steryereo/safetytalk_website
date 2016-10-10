@@ -35,6 +35,7 @@
     <script type="text/javascript">
         var loading = false;
         var noMore = false;
+        var scrollDebounce = Date.now();
 
 
         function getNextPost(count) {
@@ -52,28 +53,28 @@
                         success: function(html){
                             if(html){
                                 $("#posts").append(html);
+                                $('#loadmoreajaxloader .center').removeClass('loading');
                             }
                             else {
                                 noMore = true;
+                                $('#loadmoreajaxloader').remove();
                             }
-                            $('div#loadmoreajaxloader .center').removeClass('loading');
                             loading = false;
                         }
                     });
                 }
         }
         window.onload = function(){
-            getNextPost(1);
+            getNextPost(5);
         };
         document.querySelector('#loadmoreajaxloader').addEventListener('click', function(){
             if (!loading) {
-                getNextPost(3);
+                getNextPost(5);
             }
         });
         window.addEventListener('scroll', function(){
-           if (!loading) {
-            console.log('window.pageYOffset: ' + window.pageYOffset +  ' document.body.clientHeight - window.outerHeight: ' + (document.body.clientHeight - window.outerHeight));
-            if(window.pageYOffset >= (document.body.clientHeight - window.outerHeight)) {
+          if (!loading) {
+            if(window.pageYOffset >= (document.body.clientHeight - window.outerHeight - 10)) {
                     getNextPost(3);
                 }
             }
