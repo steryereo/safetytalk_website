@@ -74,7 +74,7 @@
         });
         window.addEventListener('scroll', function(){
             var now = Date.now();
-          if (!loading && ((now - scrollDebounce) > 50)) {
+          if (!loading && ((now - scrollDebounce) > 150)) {
             scrollDebounce = now;
             if(window.pageYOffset >= (document.body.clientHeight - window.outerHeight - 10)) {
                     getNextPost(3);
